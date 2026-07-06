@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formulario de registro</title>
+  <link rel="stylesheet" href="CSS/stylesFormu.css">
+</head>
+
+<body>
+  <form action="#">
+    <fieldset>
+      <legend>Personal data</legend>
+      <label for="name">Name</label>
+      <input type="text" name="person-name" id="person-name" required>
+      <label for="lastnames">Lastname</label>
+      <input type="text" name="person-lastname" id="person-lastname" required>
+      <label for="address">Address</label>
+      <input type="text" name="person-address" id="person-address">
+      <label for="birth-date" id="label-birth">Date of birth</label>
+      <input type="datetime-local" name="birth" id="birth">
+      <!-- cuando usamos  type "radio" es importante que todos los "name" tengan mismo valor -->
+      <div class="container-children">
+        <label id="got-children">Got children?</label>
+        <label for="children" class="txt-corto">Si</label>
+        <input type="radio" name="children" id="yes-children" value="si">
+        <label for="children" class="txt-corto">No</label>
+        <input type="radio" name="children" id="no-children" value="no">
+      </div>
+      <div class="container-children">
+        <label for="number of children" id="txt-nchildren">Number of children</label>
+      <input type="number" name="number of children" id="number of children" min="0" required>
+      </div>
+      <div class="fila-xl">
+        <p><label for="comment">Write your comment</label></p>
+        <textarea name="comment" id="comment" rows="5" placeholder="Write your comment"></textarea>
+      </div>
+
+      
+    </fieldset>
+    <fieldset>
+      <legend>Preferences</legend>
+      <h3>Hobbies</h3>
+      <div class="fila-xl">
+        <input type="checkbox" name="hobbies" value="Sports">
+      <label for="hobbies">Sports</label>
+
+      <input type="checkbox" name="hobbies" value="movie">
+      <label for="hobbies">Movie</label>
+
+      <input type="checkbox" name="hobbies" value="art">
+      <label for="hobbies">Art</label>
+
+      <input type="checkbox" name="hobbies" value="food">
+      <label for="hobbies">Food</label>
+      </div>
+      <div class="fila-xl">
+      <label for="Self-love">How much i love myself?</label>
+      <label>5</label>
+      <input type="range" name="love" id="love" min="5" max="10" value="7,5" oninput="output.value=love.value"
+        step="0.1">
+      <output id="output" name="output">7,5</output><label for="max">/10</label>
+      </div>
+
+    </fieldset>
+    <fieldset>
+      <legend>Access credentials</legend>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" required>
+      <label for="password">Password</label>
+      <input type="password" name="password" id="password" required>
+    </fieldset>
+    <fieldset>
+      <legend>Profile prefecences</legend>
+      <select name="languages" id="languages" required>
+        <option value="ninguno"></option>
+        <option value="german">Deutsch</option>
+        <option value="castellano">Castellano</option>
+        <option value="catalan">Catala</option>
+        <option value="esperanto">Esperanto</option>
+      </select>
+      <label for="color">Choose yor color</label>
+      <input type="color" name="color" value="#ff000">
+      <label for="file-upload">Upload yor file</label>
+      <input type="file" name="file-upload" accept=".pdf, .jpg, .png, .gif">
+    </fieldset>
+    <fieldset>
+      <legend>User</legend>
+      <div class="fila-xl">
+      <button type="submit">Send</button>
+      <!-- <input type="submit" value="sent"> -->
+       <button type="reset">Reset</button>
+    </div>
+    </fieldset>
+  </form>
+
+</body>
+
+</html>

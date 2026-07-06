@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="author" content="Merce Antón">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style-formulario-tabla.css">
+  <title>Formulario Matrícula</title>
+</head>
+
+<body>
+
+
+  <form method="post" action="guardar.php" class="formulari">
+
+    <div class="formulari">
+      <table>
+        <colgroup>
+          <col class="c1">
+          <col class="c2">
+          <col class="c3">
+        </colgroup>
+        <tr>
+          <th class="titol" colspan="3">Full de matrícula</th>
+        </tr>
+        <tr>
+          <td class="seccio" colspan="3">Dades personals</td>
+        </tr>
+
+        <tr>
+          <td class="camp" colspan="3">
+            <label for="nom">Nom</label>
+            <input type="text" name="nom" id="nom" required maxlength="20" class="inputtext" style="--len:20">
+          </td>
+        </tr>
+        <tr>
+          <td class="camp" colspan="3">
+            <label for="cognom">Cognom</label>
+            <input type="text" name="cognom" id="cognom" required maxlength="30" class="inputtext" style="--len:30">
+          </td>
+        </tr>
+        <tr>
+          <td class="camp" colspan="3">
+            <label for="adreca">Adreça</label>
+            <input type="text" name="adreca" id="adreca" required class="inputtext" style="--len:50">
+
+          </td>
+        </tr>
+
+        <tr>
+          <td class="camp">
+            <label for="cp">Codi postal</label>
+            <input class="inputtext" style="--len:6" type="text" name="cp" id="cp" required maxlength="5"
+              placeholder="00000" pattern="[0-9]{5}" title="Debe tener exactamente 5 dígitos">
+            <!-- Esto quiere decir que para cada posicion del CP tiene
+             que haber un número del 0 al 9 y que, además tienen que estar los
+             5 números puestos y no se puede dejar espacio en blanco -->
+          </td>
+          <td class="camp" colspan="2">
+            <label for="poblacio">Població</label>
+            <select name="poblacio" id="població" class="inputtext" style="--len:16">
+              <option value=""></option>
+              <option value="Barcelona">Barcelona</option>
+              <option value="Badalona">Badalona</option>
+              <option value="Alella">Alella</option>
+              <option value="Santa Coloma">Santa Coloma</option>
+              <option value="Mataró">Mataró</option>
+              <option value="Premià de Mar">Premià de Mar</option>
+              <option value="Premià de Dalt">Premià de Dalt</option>
+            </select>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="camp">
+            <label for="tel">Telèfon</label>
+            <select name="prefix" id="prefix" class="inputtext" style="--len:7">
+              <option value=""></option>
+              <option value="0034">+034</option>
+              <option value="0092">+092</option>
+              <option value="0049">+049</option>
+              <option value="0033">+033</option>
+              <option value="0376">+0376</option>
+            </select>
+            <input type="tel" name="tel" id="tel" maxlength="11" pattern="[0-9]{3} [0-9]{3} [0-9]{3}"
+              placeholder="000 000 000" title="El telèfon en grups de 3 digits 000 000 000" class="inputtext"
+              style="--len:12">
+          </td>
+
+
+          <td class="camp" colspan="2">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" class="inputtext" style="--len:40">
+          </td>
+        </tr>
+        <tr>
+          <td class="camp">
+            <label for="datan">Data Naixement</label>
+            <input type="date" name="datan" id="datan" class="inputtext" style="--len:12">
+          </td>
+
+
+          <td class="camp">
+            <label for="ss">SS</label>
+            <input type="text" name="ss" id="ss" maxlength="13" placeholder="00 0000000 00"
+              pattern="[0-9]{2} [0-9]{7} [0-9]{2}" class="inputtext" style="--len:13">
+          </td>
+
+
+          <td class="camp">
+            <label for="dni">DNI</label>
+            <input type="text" name="dni" id="dni" placeholder="00000000X" maxlength="9" pattern="[0-9]{8} [A-Z] {1}"
+              class="inputtext" style="--len:10">
+          </td>
+        </tr>
+
+
+        <tr>
+          <td class="seccio" colspan="3">Dades de l'empresa</td>
+        </tr>
+        <tr>
+          <td class="camp" colspan="2">
+            <label for="empresa">Empresa</label>
+            <input type="text" name="empresa" id="empresa" class="inputtext" style="--len:50">
+          </td>
+
+          <td class="camp">
+            <input type="checkbox" name="autonom" id="autonom" class="inputtext check" style="--len:2">
+            <label for="autonom">Autònom</label>
+            <!-- <span class="check"></span>Autònom -->
+          </td>
+        </tr>
+        <tr>
+          <td class="camp" colspan="3">
+            <label for="adrecaE">Adreça</label>
+            <input type="text" name="adrecaE" id="adrecaE" class="inputtext" style="--len:50">
+          </td>
+        </tr>
+        <tr>
+          <td class="camp">
+            <label for="cpE">Codi postal</label>
+            <input class="inputtext" style="--len:6" type="text" name="cpE" id="cpE" required maxlength="5"
+              maxlength="5" placeholder="00000" pattern="[0-9]{5}" title="Debe tener exactamente 5 dígitos">
+          </td>
+
+          <td class="camp" colspan="2">
+            <label for="poblacioE">Població</label>
+            <select name="poblacioE" id="poblacioE" class="inputtext" style="--len:16">
+              <option value=""></option>
+              <option value="Barcelona">Barcelona</option>
+              <option value="Badalona">Badalona</option>
+              <option value="Alella">Alella</option>
+              <option value="Santa Coloma">Santa Coloma</option>
+              <option value="Mataró">Mataró</option>
+              <option value="Premià de Mar">Premià de Mar</option>
+              <option value="Premià de Dalt">Premià de Dalt</option>
+            </select>
+
+          </td>
+        </tr>
+        <tr>
+          <td class="camp">
+            <label for="cif">CIF</label>
+            <input type="text" name="cif" id="cif" placeholder="00000000X" maxlength="9" pattern="[0-9]{8} [A-Z] {1}"
+              class="inputtext" style="--len:10">
+          </td>
+          <td class="camp" colspan="2">
+            <label for="emailE">Email</label>
+            <input type="emailE" name="emailE" id="emailE" class="inputtext" style="--len:40">
+          </td>
+        </tr>
+        <tr>
+          <td class="camp">
+            <label for="telE">Telèfon</label>
+            <select name="prefixE" id="prefixE" class="inputtext" style="--len:8">
+              <option value=""></option>
+              <option value="0034">Espanya (+034)</option>
+              <option value="0092">Iran (+092)</option>
+              <option value="0049">Alemanya (+049)</option>
+              <option value="0033">França (+033)</option>
+              <option value="0376">Andorra (+0376)</option>
+            </select>
+            <input type="tel" name="tel" id="tel" maxlength="11" pattern="[0-9]{3} [0-9]{3} [0-9]{3}"
+              placeholder="000 000 000" title="El telèfon en grups de 3 digits 000 000 000" class="inputtext"
+              style="--len:12">
+
+          </td>
+          <td class="camp" colspan="2">
+            <label for="fax" id="fax">FAX</label>
+            <input type="tel" name="fax" id="fax" maxlength="11" pattern="[0-9]{3} [0-9]{3} [0-9]{3}"
+              placeholder="000 000 000" title="El fax en grups de 3 digits 000 000 000" class="inputtext"
+              style="--len:12">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="camp">
+            <label for="activitat">Activitat</label>
+            <select name="activitat " id="activitat" class="inputtext" style="--len:16">
+              <option value=""></option>
+              <option value="industria">Indústria</option>
+              <option value="distribucio">Distribució</option>
+              <option value="transport">Transport</option>
+              <option value="informatica">Informàtica</option>
+              <option value="servicis">Servicis</option>
+              <option value="altres">Altres</option>
+            </select>
+          </td>
+          <td class="camp">
+            <label for="carrec">Càrrec</label>
+            <select name="carrec" id="carrec" class="inputtext" style="--len:20">
+              <option value=""></option>
+              <option value="CEO">CEO</option>
+              <option value="cap de departament">Cap de Departament</option>
+              <option value="treballador">Treballador</option>
+              <option value="altres">Altres</option>
+            </select>
+          </td>
+          <td class="camp">
+            <label for="departament">Departament</label>
+            <select name="departament" id="departament" class="inputtext" style="--len:16">
+              <option value=""></option>
+              <option value="comptabilitat">Comptabilitat</option>
+              <option value="rrhh">RRHH</option>
+              <option value="logistica">Logística</option>
+              <option value="it">IT</option>
+              <option value="vendes">Vendes</option>
+              <option value="compres">Compres</option>
+              <option value="administració">Administració</option>
+              <option value="altresf">Altres</option>
+            </select>
+
+          </td>
+        </tr>
+
+        <tr>
+          <td class="seccio" colspan="3">Sol·licito inscripció al curs</td>
+        </tr>
+
+        <tr>
+          <td class="camp" colspan="2">
+            <label for="codicurs">Codi de curs</label>
+            <input type="text" name="codicurs" id="codicurs" maxlength="8" pattern="[A-Z]{4} [0-9]{4}"
+              placeholder="XXXX0000" title="El codi del curs que conté 4 lletres y 4 dígits XXXX0000" class="inputtext"
+              style="--len:8">
+
+          </td>
+          <td class="camp">
+            <label for="import">Import del curs</label>
+            <input type="t¡number" name="import" id="import" class="inputtext" style="--len:10">
+          </td>
+        </tr>
+        <tr>
+          <td class="camp" colspan="3">
+            <label for="nomcurs">Nom del Curs</label>
+            <input type="text" name="nomcurs" id="nomcurs" class="inputtext" style="--len:80">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="camp">Facturar a:
+          </td>
+
+          <td class="camp">
+            <input type="radio" name="facturarA" id="facturarA" value="particularfact" class="inputtext, check">
+            <label for="particularfact">Particular</label>
+          </td>
+          <td class="camp">
+            <input type="radio" name="facturarA" id="facturarA" value="empresafact" class="inputtext, check">
+            <label for="empresafact">Empresa</label>
+        </tr>
+
+        <tr>
+          <td class="seccio" colspan="3">Forma de pagament</td>
+        </tr>
+        <tr>
+          <td class="camp" colspan="3">
+            <input type="radio" name="formapagament" id="formapagament" value="sabadell" class="inputtext, check"
+              style="--len:10">
+            <label for="sabadell">Transferència al Banc de Sabadell - Núm. de compte 2201-0899-98-0100234234</label>
+
+        </tr>
+
+
+
+        <tr>
+          <td class="camp" colspan="3">
+            <input type="radio" name="formapagament" id="formapagament" value="xec">
+            <label for="xec">Xec nominatiu a nom de la Fundació Catemmsa núm.</label>
+            <input type="text" name="numcompte" id="numcompte" class="inputtext" style="--len:50">
+          </td>
+        </tr>
+
+        <tr>
+          <td class="camp" colspan="3">
+            <input type="radio" name="formapagament" id="formapagament" value="rebut">
+            <label for="rebut">Rebut bancari - Núm. de Compte (IBAN)</label>
+            <input type="text" name="numcompte" id="numcompte" class="inputtext" style="--len:50">
+          </td>
+
+        </tr>
+
+        <tr>
+          <td class="camp" colspan="3">
+            <input type="radio" name="formapagament" id="formapagament" value="efectiu">
+            <label for="efectiu">Efectiu</label>
+        </tr>
+
+        <tr>
+          <td class="camp" colspan="3">
+            <button type="submit">Enviar</button>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </form>
+
+  <!-- <div class="formulari">
+    <table>
+      <colgroup>
+        <col class="c1">
+        <col class="c2">
+        <col class="c3">
+      </colgroup>
+      <tr>
+        <th class="titol" colspan="3">Full de matrícula</th>
+      </tr>
+      <tr>
+        <td class="seccio" colspan="3">Dades personals</td>
+      </tr>
+
+      <tr>
+        <td class="camp" colspan="3">Nom</td>
+      </tr>
+      <tr>
+        <td class="camp" colspan="3">Cognoms</td>
+      </tr>
+      <tr>
+        <td class="camp" colspan="3">Adreça</td>
+      </tr>
+
+      <tr>
+        <td class="camp">Codi postal</td>
+        <td class="camp" colspan="2">Població</td>
+      </tr>
+
+      <tr>
+        <td class="camp">Telèfon</td>
+        <td class="camp" colspan="2">Email</td>
+      </tr>
+      <tr>
+        <td class="camp">Data Naixement</td>
+        <td class="camp">SS</td>
+        <td class="camp">NIF</td>
+      </tr>
+
+
+      <tr>
+        <td class="seccio" colspan="3">Dades de l'empresa</td>
+      </tr>
+      <tr>
+        <td class="camp" colspan="2">Empresa</td>
+        <td class="camp">
+          <span class="check"></span>Autònom
+        </td>
+      </tr>
+      <tr>
+        <td class="camp" colspan="3">Adreça</td>
+      </tr>
+      <tr>
+        <td class="camp">Codi Postal</td>
+        <td class="camp" colspan="2">Població</td>
+      </tr>
+      <tr>
+        <td class="camp">CIF</td>
+        <td class="camp" colspan="2">Email</td>
+      </tr>
+      <tr>
+        <td class="camp">Telèfon</td>
+        <td class="camp" colspan="2">Fax</td>
+      </tr>
+      <tr>
+        <td class="camp">Activitat</td>
+        <td class="camp">Càrrec</td>
+        <td class="camp">Departament</td>
+      </tr>
+
+      <tr>
+        <td class="seccio" colspan="3">Sol·licito inscripció al curs</td>
+      </tr>
+
+      <tr>
+        <td class="camp" colspan="3"> Nom del Curs</td>
+      </tr>
+      <tr>
+        <td class="camp" colspan="2">Codi del curs</td>
+        <td class="camp">Import del curs</td>
+      </tr>
+      <tr>
+        <td class="camp">Facturar a</td>
+        <td class="camp"><span class="check"></span>Particular</td>
+        <td class="camp"><span class="check"></span>Empresa</td>
+      </tr>
+
+      <tr>
+        <td class="seccio" colspan="3">Forma de pagament</td>
+      </tr>
+      <tr>
+        <td class="camp" colspan="2"><span class="check"></span>Transferència al Banc de Sabadell</td>
+        <td class="camp"><span class="check"></span>Efectiu</td>
+      </tr>
+      <tr>
+        <td class="camp" colspan="3">Núm. de compte 2201-0899-98-0100234234</td>
+      </tr>
+      <tr>
+        <td class="camp" colspan="3"><span class="check"></span>Xec nominatiu a nom de la Fundació Catemmsa núm.</td>
+      </tr>
+<tr>
+  <td class="camp" colspan="3">Banc o Caixa</td>
+</tr>
+    </table>
+  </formdiv> -->
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+div{
+  width: 100px;
+  height: 100px;
+  background-color: #f00;
+  position: relative;
+  animation-name: desplazamiento;
+  animation-duration: 3000ms;
+  animation-delay: 2000ms;
+}
+@keyframes desplazamiento{
+  0%{
+    left: 0px;
+    top: 0px;
+    background-color: #f00;
+  }
+  25%{
+    left: 500px;
+    top: 0px;
+    background-color: #f00;
+  }
+  50%{
+    left: 500px;
+    top: 500px;
+    background-color: #8a2be2;
+  }
+  75%{
+    left: 0px;
+    top: 500px;
+    background-color: #7f0;
+  }
+  100%{
+    left: 0px;
+    top: 0px;
+    background-color: #f00;
+  }
+}

@@ -1,0 +1,59 @@
+body {
+  margin: 0 auto;
+  padding: 0;
+  background-color: #fff;
+}
+table {
+  border: 6px solid #00f;
+  width: 100%;
+  /* linea 10 para unir las celdas y que no se separen */
+  border-collapse: separate; /*hemos usaso el valor "separate" en vez de "collapse" porque los bordes de las celdas estan en conflicto. tambien tuvimos que agregar el border 0*/
+  border-spacing: 0;
+  table-layout: fixed;
+}
+
+td,
+th {
+  border: 1px solid #333;
+  text-align: center;
+  vertical-align: middle;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.mes {
+  background-color: #666699;
+  color: #d6ffff;
+  font-size: 110px;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg); /*rotacion del texto 180 grados*/
+  width: 220px;
+  letter-spacing: 2px; /*espaciado entre letras*/
+}
+.dies {
+  background-color: #c8efc8;
+  color: #2ca46c;
+  font-size: 24px;
+  font-family: Arial, Helvetica, sans-serif;
+  height: 80px;
+  border-bottom: 8px solid #008000;
+}
+.laborable {
+  background-color: #f3c894;
+  font-size: 48px;
+  height: 100px;
+}
+.no-lab {
+  background-color: #fefefe;
+  font-size: 48px;
+  height: 100px;
+}
+.festivo {
+  background-color: #f00;
+  font-size: 48px;
+  height: 100px;
+}
+.birra {
+  background-color: #6b6b6b;
+  height: 100px;
+  color: #fff;
+  font-size: 32px;
+}

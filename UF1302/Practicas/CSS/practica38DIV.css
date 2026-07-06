@@ -1,0 +1,13 @@
+.azul{
+  color: blue;
+  width: 400px;
+  /* height: 400px; */
+  border: 1px solid tomato;
+  background-color: #d2d2d2;
+  border-radius: 10px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.rojo{
+  color: red;
+}

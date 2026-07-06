@@ -1,0 +1,48 @@
+/* esto es una clase line 2-4 */
+.textoRojo {
+  color: tomato;
+}
+.textoRojo a:link {
+  color: blue;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.textoRojo a:visited {
+  color: violet;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.textoRojo a:hover {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+.textoRojo a:active {
+  color: green;
+  font-weight: bold;
+  text-decoration: underline;
+}
+/* de la seguiente forma que se muestra a continuacion seria una subclase 
+pero que no esta vinculada a ninguna clase como en los ejemplos de las 
+lineas de arriba */
+
+a:link {
+  color: blue;
+  font-weight: bold;
+  text-decoration: underline;
+}
+a:visited {
+  color: violet;
+  font-weight: bold;
+  text-decoration: underline;
+}
+a:hover {
+  color: black;
+  font-weight: bold;
+  text-decoration: underline;
+}
+a:active {
+  color: green;
+  font-weight: bold;
+  text-decoration: underline;
+}

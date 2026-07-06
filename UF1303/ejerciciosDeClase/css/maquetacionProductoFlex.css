@@ -1,0 +1,180 @@
+* {
+  box-sizing: border-box;
+}
+section {
+  display: flex;
+  flex-wrap: wrap;
+  width: 1200px;
+  margin: 0 auto;
+}
+.producto {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: 0 0 20px 0;
+  padding: 20px;
+}
+
+/* aqui aplicamos el anidamiento para que las siguientes configuraciones 
+se apliquen solo a las imagenes que esten dentro de la clase que se llama producto */
+.producto .imagen {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+}
+.producto .imagen img {
+  width: 200px;
+  height: 200px;
+}
+.producto .contenido {
+  width: 100%;
+  border-bottom: 1px solid #000;
+  /* background-color: #7fffd4; */
+  padding: 10px 10px 5px 10px;
+}
+.producto .pie {
+  display: flex;
+  width: 100%;
+}
+.producto .pie .col-pie {
+  width: 50%;
+}
+.producto .pie .col-pie:first-child {
+  font-weight: 900;
+  font-size: 1.25rem;
+}
+.producto .pie .col-pie:last-child {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  align-items: flex-end;
+}
+
+/* *****************Tipografias************************ */
+body {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.875rem;
+}
+h3 {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 800;
+  font-style: normal;
+  font-size: 1rem;
+}
+h3 a:link,
+.col-pie a:link {
+  color: #000;
+  text-decoration: none;
+}
+h3 a:visited,
+.col-pie a:visited {
+  color: #6495ed;
+  text-decoration: none;
+}
+h3 a:hover,
+.col-pie a:hover {
+  color: #6495ed;
+  text-decoration: none;
+}
+h3 a:active,
+.col-pie a:active {
+  color: #6495ed;
+  text-decoration: none;
+}
+
+/* las lineas de 70 a 74, funciona pero solo lo corta, no muestra puntos suspensivos */
+/* .producto .contenido p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-height: 75px;
+} */
+
+/* el anidamiento de "p" no tiene punto porque es una etiqueta y no una clase */
+.producto .contenido p {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/***************Media Queries*******************diseño responsive */
+
+/*  5 Columnas cuando >1200px
+    4 Columnas cuando <1000px y >925px
+    3 Columnas cuando <925px y >850px
+    2 Columnas cuando <850px y >700px
+    1 Columnas cuando <700px            
+    
+    las versiones responsive en CSS siempre deberan trabajarse con "porcentajes"
+  (aunque en los estilos tengamos algunos tamaños definodos en "px"). 
+
+  El orden es importante, el programa lee de arriba abajo asi que hay que empezar
+  de mayor a menor pantalla
+   */
+
+@media screen and (max-width: 1200px) {
+  section {
+    width: 100%;
+  }
+
+  /*si usamos "flex: 20%;" cuando haya menos de 5 productos, los tamaños seran 
+  flexibles y entonces puede que haya distintos tamaño del contenedor 
+  de producto si por ejemplo en una fila hay solo 2 productos 
+  y no 5 *, por eso usamos "width"/.
+  */
+   .producto{
+    /* flex: 20%; */
+    width: 20%;
+   }
+  .producto .imagen, .producto .imagen img {
+    width: 100%;
+    height: auto;
+    /* ".producto .imagen" y ".producto .imagen img" tendran los mismos valores 
+    por ello podemos ponerlos separados por una coma "," y darle los mismos valores
+    a los dos (solo porque las dos clases comparten los mismos valores) */
+  }
+   
+}
+@media screen and (max-width: 1000px) {
+  /* section {
+    width: 100%;
+  } */
+  .producto {
+    width: 25%;
+  /* }
+  .producto .imagen {
+    width: 100%;
+    height: auto;
+  }
+  .producto .imagen img {
+    width: 100%;
+    height: auto;
+  } */
+
+  /* hemos comentado "section", ".producto .imagen" y ".producto .imagen img" porque 
+  ya los hemos definido antes, asi que no hace falta volver a escribirlo dado que 
+  los valores no cambian y el programa asume que se repiten, 
+  no hace falta volver a escribirlo*/
+}
+
+@media screen and (max-width: 925px) {
+  .producto {
+    width: 33.3%;
+  }
+}
+ 
+@media screen and (max-width: 850px) {
+  .producto {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .producto {
+    flex: 100%;
+  }
+}

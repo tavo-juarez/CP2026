@@ -1,0 +1,7 @@
+.fondo-color:target{
+  background-color: #00a5a7;
+}
+p:has(a:target){
+  /* margin-top: 700px; */
+  background-color: #f00;
+}

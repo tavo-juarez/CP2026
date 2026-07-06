@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gaps</title>
+  <style>
+    /* con esta propiedad CSS le decimos que el borde 
+    lo haga para dentro lineas 10-14*/
+    *, 
+    ::after,
+    ::before{
+        box-sizing: border-box;
+    }
+    .container{
+      background-color: #333;
+      padding: 10px;
+      margin-bottom: 10px;
+      height: 40vh;
+      display: flex;
+      flex-flow: row wrap;
+      /* gap: 10px 20px; */
+      /* row-gap: 20px; */
+      column-gap: 20px;
+    }
+    .item{
+      background-color: tomato;
+      border: 1px #fff solid;
+      width:20%;
+    }
+  </style>
+</head>
+<body>
+  <!-- section.container>article*3.item{flex item$} short hand para lineas 10-14  -->
+   <section class="container">
+    <article class="item">flex item 1</article>
+    <article class="item">flex item 2</article>
+    <article class="item">flex item 3</article>
+    <article class="item">flex item 4</article>
+    <article class="item">flex item 5</article>
+    <article class="item">flex item 6</article>
+    <article class="item">flex item 7</article>
+    <article class="item">flex item 8</article>
+   </section>
+   <section class="container">
+    <article class="item">flex item A</article>
+    <article class="item">flex item B</article>
+    <article class="item">flex item C</article>
+   </section>
+
+</body>
+</html>

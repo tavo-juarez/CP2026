@@ -1,0 +1,10 @@
+.titulo{
+  font-weight: bold;
+  color: red;
+  border: 1px solid #f00;
+  width: fit-content;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}

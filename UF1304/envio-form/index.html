@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de contacto</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rubik+Mono+One&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/button.css">
+</head>
+
+<body>
+    <h1>Contacto</h1>
+    <main>
+        <form action="enviar.php" method="post">
+            <h2>Formulario de contacto</h2>
+            <div>
+                <span>Tu nombre:</span>
+                <input type="text" name="nombre" autocapitalize="words" autocomplete="on" required>
+            </div>
+            <div>
+                <span>Tu apellido:</span>
+                <input type="text" name="apellido" autocapitalize="words" autocomplete="on" required>
+            </div>
+            <div>
+                <span>Tu email:</span>
+                <input type="email" name="email" autocomplete="on" required>
+            </div>
+            <div>
+                <span>Asunto del mensaje:</span>
+                <select name="asunto">
+                    <option>Comentario</option>
+                    <option>Sugerencia</option>
+                    <option>Reclamo</option>
+                </select>
+            </div>
+            <div class="large">
+                <span>Mensaje:</span>
+                <textarea name="mensaje" rows="6" cols="80"></textarea>
+            </div>
+            <div class="large">
+                <button class="button" type="submit">Enviar mensaje</button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>

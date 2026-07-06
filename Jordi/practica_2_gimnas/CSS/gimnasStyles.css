@@ -1,0 +1,238 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+:root {
+  --table-tittle-color: #0a40f2;
+  --gymnastics-color: #baff24;
+  --weightlifting-color: #d1e2e6;
+  --openbox-color: #21c0fc;
+  --crossfit-color: #ff2600;
+  --mobility-color: #ecfc3a;
+  --yoga-color: #d23afc;
+  --conditioning-color: #81fc3a;
+  --borde-formulario: solid 1px #0a40f2;
+  --color-table-border: 2px solid #c2bebe;
+  --borde-interno-celda: inset -3px -4px #fff, inset 3px 4px #fff;
+}
+.home {
+  background-image: url("../img/bg-home.jpg");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+header {
+  background-color: #000;
+  /* border-radius: 8px; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* margin-top: 24px; */
+  /* width: 100%; */
+
+  img {
+    width: 120px;
+  }
+}
+.header-home {
+  border-radius: 8px;
+}
+nav {
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  width: 75%;
+}
+header nav ul {
+  display: flex;
+  justify-content: center;
+
+  margin: 1px 8px 1px 8px;
+  gap: 12px;
+  width: 240px;
+  background-color: #000;
+  list-style-type: none; /* Quita los puntos negros */
+  padding: 0; /* Elimina el espacio interior por defecto */
+  margin: 0; /* Elimina el espacio exterior por defecto */
+
+  li {
+    padding: 12px 0px 12px 0px;
+
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+  }
+}
+
+.contenedor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+
+  /* width: 400px; */
+  margin-top: 60px;
+
+  .baner-contenedor {
+    width: 30%;
+    border: 2px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 12px;
+    padding: 24px;
+    gap: 16px;
+
+    p {
+      color: #fff;
+      font-size: 12px;
+    }
+    img {
+      width: 50%;
+    }
+  }
+  .carta-motivacion {
+    background-color: #fff;
+    border-left: 4px solid #0000ff;
+    padding: 20px;
+    width: 75%;
+
+    p {
+      color: #1414b5;
+      font-size: 12px;
+    }
+    .derecha {
+      color: #000;
+      text-align: right;
+    }
+  }
+}
+footer {
+  text-align: center;
+  margin: 16px 0px 16px 0px;
+
+  p {
+    color: #fff;
+  }
+}
+/* ----------------------------Schedule------------------------------- */
+.tabla-horarios {
+  margin: 0 auto;
+  width: 75%;
+}
+table {
+  margin-bottom: 32px;
+  border-collapse: collapse;
+  /* height: 600px; */
+  border: var(--color-table-border);
+  width: 100%;
+  /* height: auto; */
+}
+.titulo-tabla {
+  background-color: var(--table-tittle-color);
+  color: #fff;
+  height: 48px;
+  text-align: center;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.contenedor-horarios {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  h1 {
+    width: 300px;
+    text-align: center;
+  }
+}
+
+th {
+  height: 50px;
+}
+td {
+  height: 50px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  width: 120px;
+  /* border: 1px #000 solid; */
+  border-bottom: var(--color-table-border);
+  border-top: var(--color-table-border);
+  /* box-shadow: var(--borde-interno-celda); */
+}
+.weightlifting {
+  text-align: center;
+  background-color: var(--weightlifting-color);
+  box-shadow: var(--borde-interno-celda);
+}
+.crossfit {
+  /* border-left: none;
+  border-right: none; */
+  text-align: center;
+  background-color: var(--crossfit-color);
+  box-shadow: var(--borde-interno-celda);
+}
+.open-box {
+  text-align: center;
+  background-color: var(--openbox-color);
+  box-shadow: var(--borde-interno-celda);
+}
+.gymnastics {
+  text-align: center;
+  background-color: var(--gymnastics-color);
+  box-shadow: var(--borde-interno-celda);
+}
+.yoga {
+  text-align: center;
+  background-color: var(--yoga-color);
+  box-shadow: var(--borde-interno-celda);
+}
+.mobility {
+  text-align: center;
+  background-color: var(--mobility-color);
+  box-shadow: var(--borde-interno-celda);
+}
+.conditioning {
+  text-align: center;
+  background-color: var(--conditioning-color);
+  box-shadow: var(--borde-interno-celda);
+}
+.no-class {
+  background-color: #ddd;
+}
+.horas {
+  border: var(--color-table-border);
+  text-align: center;
+}
+.uno {
+  background-color: #fff;
+}
+
+/* --------------FORMULARIO------Join us*/
+fieldset{
+  border: var(--borde-formulario);
+}
+.membership {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  height: 120px;
+  border-radius: 8px;
+  margin-top: 16px;
+
+  margin: 0 auto 24px auto;
+
+  #membership-type{
+    width: 240px;
+  }
+}
+label,
+select {
+  margin-top: 16px;
+}

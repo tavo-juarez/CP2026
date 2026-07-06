@@ -1,0 +1,30 @@
+div {
+  width: 100px;
+  height: 100px;
+  background-color: #f00;
+  position: relative;
+  animation-name: desplazamiento;
+  animation-duration: 3000ms;
+  animation-delay: 2000ms;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+
+  /* animation: alternate; */
+}
+@keyframes desplazamiento {
+  0% {
+    left: 0px;
+    top: 0px;
+    background-color: #f00;
+  }
+  50% {
+    left: 90%;
+    top: 0px;
+    background-color: #8a2be2;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+    background-color: #f00;
+  }
+}

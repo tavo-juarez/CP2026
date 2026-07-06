@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selects dependents amb javascript</title>
+</head>
+
+<body>
+  <form action="#">
+    <label for="categoria">Categoria:</label>
+    <select name="categoria" id="categoria" onchange="cargarSubcategories()">
+      <option value="">-- Seleciona una opcio --</option>
+      <option value="fruita">Fruita</option>
+      <option value="verdura">Verdura</option>
+    </select>
+    <label for="subcategoria">Subcategoria</label>
+    <select name="subcategoria" id="subcategoria">
+      <option value="">-- Selecciona una categoria --</option>
+    </select>
+  </form>
+  <!------------------------------ JavaScript ----------------------------->
+  <script>
+    const subcategorias = {
+      fruita: ["Poma", "Pera", "Taronja"],
+      verdura: ["Col romanescu", "Enciam", "Tomaquet"]
+    };
+
+
+
+    function cargarSubcategories() {
+      const categoria = document.getElementById("categoria").value;
+      const subcategoria = document.getElementById("subcategoria");
+
+      //limpiar opciones del segundo select (reset subcategoria)
+      subcategoria.innerHTML = '<option value="">-- Seleciona una categoria primer--</option>';
+
+      if (categoria && subcategorias[categoria]) {
+        subcategorias[categoria].forEach(item => {
+          const option = document.createElement("option");
+          option.value = item.toLowerCase();
+          option.text = item;
+          subcategoria.appendChild(option);
+
+        });
+      }
+
+    }
+  </script>
+
+
+</body>
+
+</html>

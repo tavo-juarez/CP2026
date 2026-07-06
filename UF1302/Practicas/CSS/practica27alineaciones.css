@@ -1,0 +1,34 @@
+.izquierda {
+  text-align: left;
+}
+.centrado {
+  text-align: center;
+}
+.derecha {
+  text-align: right;
+}
+.justificado {
+  text-align: justify;
+}
+.distribuido {
+  text-align: justify;
+  text-align-last: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+}
+
+div {
+  width: 50%;
+  border: 1px solid black;
+  margin: 20px auto;
+}
+ul {
+  display: inline-block;
+  text-align: left;
+}
+#caja-centrada {
+  text-align: center;
+  width: 50%;
+  border: 1px solid black;
+  margin: 20px auto;
+}

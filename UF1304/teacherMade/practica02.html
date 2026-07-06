@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de registro</title>
+    <link rel="stylesheet" href="css/estilo02.css">
+</head>
+
+<body>
+    <form action="#">
+        <fieldset>
+            <legend>Datos personales</legend>
+            <label for="nombre">Nombre</label>
+            <input type="text" name="nombre-persona" id="nombre-persona" required>
+            <label for="apellidos">Apellidos</label>
+            <input type="text" name="apellidos-persona" id="apellidos-persona" required>
+            <label for="direccion">Dirección</label>
+            <input type="text" name="direccion-persona" id="direccion-persona" placeholder="Dirección">
+            <label for="fecha-nacimento" id="etiqueta-nacimiento">Fecha de nacimiento</label>
+            <input type="date" name="nacimiento" id="nacimiento">
+            <div class="container-hijos">
+                <label>¿Tienes hijos?</label>
+                <label for="hijos" class="txt-corto">Si</label>
+                <input type="radio" name="hijos" id="hijos-si" value="si-tiene-hijos">
+                <label for="hijos" class="txt-corto">No</label>
+                <input type="radio" name="hijos" id="hijos-no" value="no-tiene-hijos">
+            </div>
+            <div class="container-hijos">
+                <label for="numero-hijos" id="txt-nhijos">Número de hijos</label>
+                <input type="number" name="numero-hijos" id="numero-hijos" min="0">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Preferencias personales</legend>
+            <h3>Aficiones</h3>
+            <div class="fila-xl">
+                <input type="checkbox" name="aficiones" value="deportes">
+                <label for="aficiones">Deportes</label>
+                <input type="checkbox" name="aficiones" value="cine">
+                <label for="aficiones">Cine</label>
+                <input type="checkbox" name="aficiones" value="arte">
+                <label for="aficiones">Arte</label>
+                <input type="checkbox" name="aficiones" value="musica">
+                <label for="aficiones">Música</label>
+            </div>
+            <div class="fila-xl">
+                <label for="querer">¿Cuánto me quiero?</label>
+                <label for="min">5</label>
+                <input type="range" id="querer" name="querer" min="5" max="10" value="7,5"
+                    oninput="output.value=querer.value" step="0.1">
+                <output id="output" name="output">7,5</output><label>/10</label>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Credenciales de acceso</legend>
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+            <label for="password">Contraseña</label>
+            <input type="password" id="password" name="password" required>
+        </fieldset>
+    </form>
+</body>
+
+</html>

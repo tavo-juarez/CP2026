@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Grow</title>
+  <style>
+    /* con esta propiedad CSS le decimos que el borde 
+    lo haga para dentro lineas 10-14*/
+    *, 
+    ::after,
+    ::before{
+        box-sizing: border-box;
+    }
+    .container{
+      background-color: #333;
+      /* padding: 10px; */
+      margin-bottom: 10px;
+      height: 40vh;
+      display: flex;
+      flex-flow: row nowrap;
+    }
+    .item{
+      background-color: tomato;
+      border: 1px #fff solid;
+      width:20%;
+      height: 20vh;
+      order: 2;
+    }
+    .item:nth-child(2){
+      /* font-size: 200%; */
+      order: 1;
+      height: 20vh;
+      background-color: yellow;
+      
+    }
+    .item:nth-child(3){
+      /* font-size: 200%; */
+      background-color: blueviolet;
+      align-self: self-end;
+      height: 20vh;
+      
+    }
+  </style>
+</head>
+<body>
+  <!-- section.container>article*3.item{flex item$} short hand para lineas 10-14  -->
+   <section class="container">
+    <article class="item">flex item 1</article>
+    <article class="item">flex item 2</article>
+    <article class="item">flex item 3</article>
+    <article class="item">flex item 4</article>
+    <article class="item">flex item 5</article>
+   </section>
+   <section class="container">
+    <article class="item">flex item A</article>
+    <article class="item">flex item B</article>
+    <article class="item">flex item C</article>
+   </section>
+
+</body>
+</html>

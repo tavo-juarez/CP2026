@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Display Flex</title>
+  <style>
+    .container{
+      background-color: #333;
+      padding: 10px;
+      /* display dos opciones: linea 14
+      Inline-flex abraza el contenedor
+      flex ocupa el 100%   */
+      display: flex;
+    }
+    .item{
+      background-color: tomato;
+      border: 1px #fff solid;
+    }
+  </style>
+</head>
+<body>
+  <!-- section.container>article*3.item{flex item$} short hand para lineas 10-14  -->
+   <section class="container">
+    <article class="item">flex item1</article>
+    <article class="item">flex item2</article>
+    <article class="item">flex item3</article>
+   </section>
+   <!-- <section class="container">
+    <article class="item">flex item1</article>
+    <article class="item">flex item2</article>
+    <article class="item">flex item3</article>
+   </section> -->
+
+</body>
+</html>

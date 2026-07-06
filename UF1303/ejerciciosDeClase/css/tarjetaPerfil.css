@@ -1,0 +1,84 @@
+/* 1. Reset o configuracion de HTML y tipografia */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f4f7f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* 2. Contenedor de la tarjeta */
+.card {
+  background-color: #fff;
+  width: 350px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 300ms ease;
+}
+.card:hover {
+  transform: translateY(-10px);
+}
+
+/* 3. Cabecera */
+.card-header {
+  background: linear-gradient(135deg, #6e8efb, #a777e3);
+  color: #fff;
+  padding: 2rem;
+}
+.tagline {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+/* 4. Cuerpo de la tarjeta */
+.card-body {
+  color: #444;
+  line-height: 1.6;
+  padding: 1.5rem;
+}
+.skills {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 1rem;
+}
+.skills span {
+  background: #eee;
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+/* 5. Footer y boton */
+.card-footer{
+  padding: 0.8rem 0 2.7rem 0;
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+.btn{
+  text-decoration: none;
+  color: #fff;
+  /* background-color: #333; */
+  padding: 10px 25px;
+  border-radius: 5px;
+  font-weight: 600;
+  transition: background-position 500ms ease-out;
+  background: linear-gradient( 105deg, #555 50%, #333 50%);
+  background-size: 210% 100%;
+  background-position: right bottom;
+
+ 
+}
+.btn:hover{
+  background-position: left bottom;
+  /* background-color: #555; */
+}

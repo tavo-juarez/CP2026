@@ -1,0 +1,26 @@
+.a{
+  line-height: normal;
+}
+.b{
+  line-height: 1.6;
+}
+.c{
+  line-height: 80%;
+}
+.d{
+  line-height: 200%;
+}
+.pixels´{
+  font-size: 16px;
+  line-height: 16px;
+}
+.en_rem{
+  font-size: 1rem;
+  line-height: 1.19rem;
+}
+h1{
+  color: brown;
+}
+h2{
+  color: blueviolet;
+}

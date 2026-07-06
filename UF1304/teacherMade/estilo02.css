@@ -1,0 +1,71 @@
+*{
+    box-sizing: border-box;
+}
+fieldset{
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    width: 70%;
+    padding: 12px;
+    margin: 0 auto 24px auto;
+}
+legend{
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+label{
+    width: 10%;
+    margin: 0 0 16px 0;
+}
+input{
+    width: 38%;
+    margin: 0 0 16px 0;
+    padding: 4px;
+    border: 1px solid #333;
+    border-radius: 4px;
+}
+label:nth-child(even){
+    margin: 0 0 0 8px;
+}
+#etiqueta-nacimiento{
+    width: 18%;
+}
+#nacimiento{
+    width: 30%;
+}
+/* .txt-corto{
+    width: 24px;
+} */
+#hijos-si, #hijos-no{
+    width: auto;
+}
+#txt-nhijos{
+    margin-left: 12px;
+}
+.container-hijos{
+    width: 50%;
+    /* display: flex; */
+}
+/* .container-hijos:nth-child(even){
+    width: 51%;
+} */
+/* #direccion-persona{
+    width: 100%;
+} */
+.fila-xl{
+    width: 100%;
+    label{
+        margin: 0 12px 0 2px;
+    }
+}
+input[type="checkbox"]{
+    width: auto;
+}
+input[type="range"]{
+    vertical-align: middle;
+    margin-bottom: 0px;
+    accent-color: red;
+}
+output{
+    font-weight: 800;
+}

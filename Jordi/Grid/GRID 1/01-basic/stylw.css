@@ -1,0 +1,60 @@
+*{
+  box-sizing: border-box;
+}
+
+:root {
+  --color-item: rgba(150, 255, 150, 0.7);
+  --color-lletra: #000;
+  --color-fons: #efefef;
+  --color-titols: #3333ff;
+  --color-contenidor: #fff;
+  --mida-lletra-item: 2rem;
+  --sangria-contenidor: 25px;
+  --altura-item: 100px;
+  --marge-entre-grids: 20px;
+
+}
+body {
+  background-color: var(--color-fons);
+}
+.contenidor {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: var(--color-contenidor);
+  padding: var(--sangria-contenidor);
+}
+h1, h2{
+  color: var(--color-titols);
+}
+.grid-columnas-iguales{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr; /*cuando las columnas son iguales: grid-template-columns: repeat(3,1fr);*/
+  gap: 20px;
+}
+.grid-columnas-diferentes{
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr; /*cuando las columnas son iguales: grid-template-columns: repeat(3,1fr);*/
+  gap: 20px;
+}
+.grid-filas-diferentes{
+  display: grid;
+  grid-template-rows: 0.5fr 2fr 1fr; /*cuando las columnas son iguales: grid-template-columns: repeat(3,1fr);*/
+  gap: 20px;
+}
+.grid-filas-iguales{
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr; /*cuando las columnas son iguales: grid-template-columns: repeat(3,1fr);*/
+  gap: 20px;
+}
+.item{
+  width: 100%;
+  background-color: var(--color-item);
+  min-height: var(--altura-item);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--mida-lletra-item);
+}
+.item::before, .item::after{
+  content: "-";
+}

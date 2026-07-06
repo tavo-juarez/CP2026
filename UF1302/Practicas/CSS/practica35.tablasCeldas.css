@@ -1,0 +1,12 @@
+table{
+  width: 50%;
+  border-collapse: collapse;
+}
+td, th{
+  border: 1px solid black;
+}
+caption{
+  font-size: 20px;
+  color: red;
+  font-weight: bold;
+}

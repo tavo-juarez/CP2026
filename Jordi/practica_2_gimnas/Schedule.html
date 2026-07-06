@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Schedule</title>
+  <link rel="stylesheet" href="CSS/gimnasStyles.css">
+</head>
+
+<body>
+  <header>
+      <nav>
+        <img src="img/logo.png" alt="">
+        <ul>
+          <li><a href="index.html">About</a></li>
+          <li><a href="Schedule.html">Schedule</a></li>
+          <li><a href="joinUs.html">Join us</a></li>
+        </ul>
+      </nav>
+    </header>
+  <main class="tabla-horarios">
+    
+    <div class="contenedor-horarios">
+      <h1>CLASS<br>
+        SCHEDULES</h1>
+      <p>
+        We offer classes for every level and for as soon as our doors are re-opened we can’t wait to welcome you into
+        our spacious, covid-secure facility. Each person in class gets their own marked out bay, their own kit and their
+        own cleaning equipment to make sure that we keep you as safe as possible. Our venue is a large, well ventilated
+        space so you can rest assured that we are doing all we can to keep our members and coaches safe.
+      </p>
+    </div>
+    <table class="horarios">
+      <!-- 
+      Resumen rápido para recordar siempre:
+      <table> abre el juego.
+      <th> es para el título. Celda de encabezado (los títulos de arriba).(Table Header)
+      <tr>  Va de lado a lado. Fila de la tabla (las líneas horizontales, de izquierda a derecha).(Table Row)
+      <td> Es para el contenido. Celda de datos (las casillas normales).(Table Data)
+        -->
+
+      <!-- Con esta etiqueta tenemos control sobre cada COLUMNA 
+ han de haber tantos "col" como columnas tenga"-->
+      <colgroup>
+        <col class="uno">
+        <col class="dos">
+        <col class="tres">
+        <col class="cuatro">
+        <col class="cinco">
+        <col class="seis">
+        <col class="siete">
+        <col class="ocho">
+      </colgroup>
+      <tr>
+        <td class="titulo-tabla" colspan="8">Weekly Timetable</td>
+      </tr>
+      <tr>
+        <th></th>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+      </tr>
+      <!-- HORA 1 -->
+      <tr>
+        <td class="horas">07:00 - 08:00</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 2 -->
+      <tr>
+        <td class="horas">08:00 - 09:00</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="weightlifting">Weightlifting</td>
+        <td class="open-box">Open Box</td>
+        <td class="gymnastics">Gymnastics</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 3 -->
+      <tr>
+        <td class="horas">09:00 - 10:00</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 4 -->
+      <tr>
+        <td class="horas" rowspan="2">10:00 - 11:00</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 5 -->
+      <tr>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 6 -->
+      <tr>
+        <td class="horas">11:00 - 12:00</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="crossfit">CrossFit</td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 7 -->
+      <tr>
+        <td class="horas">12:00 - 13:00</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 8 -->
+      <tr>
+        <td class="horas">13:00 - 14:00</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 9 -->
+      <tr>
+        <td class="horas">14:00 - 15:00</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 10 -->
+      <tr>
+        <td class="horas">17:30 - 18:30</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 11 -->
+      <tr>
+        <td class="horas" rowspan="2">17:30 - 18:30</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 12 -->
+      <tr>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 7 -->
+      <tr>
+        <td class="horas" rowspan="2">18:30 - 19:30</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="weightlifting">Weightlifting</td>
+        <td class="crossfit">CrossFit</td>
+        <td class="crossfit">CrossFit</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 12 -->
+      <tr>
+        <td class="mobility">Mobility</td>
+        <td class="gymnastics">Gymnastics</td>
+        <td class="open-box">Open Box</td>
+        <td class="yoga">Yoga</td>
+        <td class="open-box">Open Box</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 9 -->
+      <tr>
+        <td class="horas" rowspan="2">18:30 - 19:30</td>
+        <td class="conditioning">Crossfit</td>
+        <td class="conditioning">Crossfit</td>
+        <td class="conditioning">Crossfit</td>
+        <td class="conditioning">Crossfit</td>
+        <td class="conditioning">Crossfit</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 12 -->
+      <tr>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 11 -->
+      <tr>
+        <td class="horas" rowspan="2">18:30 - 19:30</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="crossfit">Crossfit</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+      <!-- HORA 12 -->
+      <tr>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="open-box">Open Box</td>
+        <td class="no-class"></td>
+        <td class="no-class"></td>
+      </tr>
+
+
+    </table>
+
+  </main>
+
+</body>
+
+</html>

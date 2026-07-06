@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+:root{
+  --color-font-body: #f2f2f2;
+  --tipus-lletra-web: Arial, Helvetica, sans-serif;
+
+  --color-fons-header: #a7c7e7;
+  --color-lletra-header: #fff;
+
+  --color-fons-main: #a8e6cf;
+  --color-lletra-main: #2d5f38;
+
+  --color-fons-footer: #1a1a1d;
+  --color-lletra-footer: #faebd7;
+  
+  --color-fons-aside: #fff;
+  --color-lletra-aside: #3d2630;
+
+  --color-fons-targete: #e6e6e6;
+
+  --color-fons-etiqueta: #333;
+  --color-lletra-etiqueta: #fff;
+
+  --num-columnes-targetes-web: 3;
+  --num-columnes-targetes-tablet: 2;
+  --num-columnes-targetes-mobil: 1;
+
+}
+body {
+  font-family: var(--tipus-lletra-web);
+  background-color: var(--color-font-body);
+}
+.contenidor {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: 100px 1fr 80px;
+
+  grid-template-areas: 
+    "header header"
+    "aside main"
+    "footer footer";
+
+  gap: 10px;
+  padding: 10px;   
+}
+.header{
+  grid-area: header;
+  background-color: var(--color-fons-header);
+  color: var(--color-lletra-header);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.aside{
+  grid-area: aside;
+  padding: 20px;
+  background-color: var(--color-fons-aside);
+  color: var(--color-lletra-aside);
+}
+.aside h2{
+  margin-bottom: 20px;
+}
+.aside ul{
+  list-style: none;
+}
+.aside ul li{
+  margin-bottom: 12px;
+}
+.main{
+  grid-area: main;
+  background-color: var(--color-fons-main);
+  color: var(--color-lletra-main);
+  padding: 20px;
+}
+.main h2{
+  margin-bottom: 20px;
+}
+.main p{
+  line-height: 1.5;
+}
+.tarjetas{
+  display: grid;
+  grid-template-columns: repeat(var(--num-columnes-targetes-web),1fr);
+  gap: 12px;
+  margin-top: 24px;
+}
+.tarjeta{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-fons-targete);
+  padding: 8px;
+  border-radius: 16px;
+  position: relative;
+}
+.tarjeta img{
+  width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.etiqueta{
+  opacity: 0;
+  position: absolute;
+  /* bottom: 12px;      esto es si quiero que la etiqueta salga abajo*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--color-fons-etiqueta);
+  color: var(--color-lletra-etiqueta);
+  font-weight: 700;
+  height: 25%;
+  width: 50%;
+  border-radius: 5px;
+}
+.tarjeta:hover .etiqueta{
+  opacity: 0.7;
+}
+.footer{
+  grid-area: footer;
+  background-color: var(--color-fons-footer);
+  color: var(--color-lletra-footer);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ---------------Responsividad------------------------ */
+
+@media (max-width:1024px) {
+  .contenidor{
+    grid-template-columns: 1fr;
+    grid-template-rows: 80px auto 1fr 70px;
+    grid-template-areas: 
+    "header"
+    "aside"
+    "main"
+    "footer"
+    ;
+  }
+  .tarjetas{
+    grid-template-columns: repeat(var(--num-columnes-targetes-tablet),1fr);
+  }
+  .aside ul{
+    display: flex;
+    flex-direction: row;
+  }
+  .aside ul li{
+    margin-right: 12px;
+  }
+}
+
+@media (max-width:768px) {
+  
+  .tarjetas{
+    grid-template-columns: repeat(var(--num-columnes-targetes-mobil),1fr);
+  }
+  
+}

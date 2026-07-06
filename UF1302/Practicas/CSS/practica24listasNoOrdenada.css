@@ -1,0 +1,9 @@
+.circulo{
+  list-style-type: circle;
+}
+.cuadrado{
+  list-style-type: square;
+}
+.disco{
+  list-style-type: disc;
+}

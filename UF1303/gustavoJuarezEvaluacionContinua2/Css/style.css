@@ -1,0 +1,244 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+
+p, span {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Ocultamos el checkbox y el icono del menú en ordenadores */
+#btn-menu, .icono-menu {
+  display: none;
+}
+
+.navegacion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px #c5c9c9 solid;
+  padding: 16px 80px;
+
+  h2, span {
+    color: #383d3d;
+  }
+
+  .categories {
+    display: flex;
+    list-style: none;
+
+    li {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      margin-left: 16px;
+      cursor: pointer;
+    }
+  }
+}
+
+.hero {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+  padding: 0 80px;
+
+  /* Contenedor tipo marco para congelar el tamaño de la imagen */
+  .contenedor-img {
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  img {
+    width: 100%;
+    display: block;
+    transition: transform 0.4s ease; /* Transición suave para el zoom */
+    
+    &:hover {
+      transform: scale(1.04); /* Crece un 4% hacia adentro */
+    }
+  }
+}
+
+.pequeña {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  margin-top: 24px;
+  padding: 32px 80px;
+
+  .noticia-pequeña {
+    h3 {
+      margin-top: 8px;
+    }
+
+    /* Marco rígido para congelar las tarjetas pequeñas */
+    .contenedor-img {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      
+      &:hover {
+        transform: scale(1.05); /* Crece un 5% hacia adentro */
+      }
+    }
+  }
+}
+
+.derecho {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #f2f3f3;
+  border-left: 3px solid #55a598;
+  padding: 32px 16px;
+  gap: 70px;
+
+  h2 {
+    color: #55a598;
+    margin-bottom: 16px;
+  }
+
+  .verifi {
+    gap: 12px;
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+    border-bottom: 2px solid #000;
+  }
+}
+
+.pie-pagina {
+  border-top: 2px #c5c9c9 solid;
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  padding: 24px 80px 32px 80px;
+
+  .listas {
+    display: flex;
+    gap: 24px;
+
+    li {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: left;
+      list-style-type: none;
+    }
+  }
+
+  .fact-this {
+    width: 30%;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+    
+    i {
+      font-size: 32px;
+      transition: all 0.3s;
+    }
+
+    &:hover i {
+      color: #007bff;
+      transform: translateY(-5px);
+    }
+  }
+}
+
+/* ------------- RESPONSIVIDAD ---------------------------*/
+
+@media screen and (max-width: 1024px){
+  .hero {
+    grid-template-columns: 1fr;
+  }
+  
+  .pequeña {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .noticia-pequeña:nth-child(3) {
+    grid-column: 1 / -1; 
+  }
+}
+
+@media screen and (max-width: 768px){
+  .hero, .pequeña {
+    padding-left: 40px;
+    padding-right: 40px;
+  }
+  
+  .pequeña {
+    grid-template-columns: 1fr;
+  }
+  
+  .pie-pagina {
+    padding: 24px 40px;
+  }
+}
+
+/* Cambio drástico del menú y márgenes a los 600px */
+@media screen and (max-width: 600px){
+  .navegacion {
+    padding: 16px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .nav-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .icono-menu {
+    display: block;
+    font-size: 28px;
+    cursor: pointer;
+    color: #383d3d;
+  }
+
+  .navegacion .categories {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 16px;
+    border-top: 1px solid #c5c9c9;
+    padding-top: 8px;
+
+    li {
+      margin-left: 0;
+      margin-bottom: 12px;
+      font-size: 18px;
+    }
+  }
+
+  /* Activación mecánica del menú */
+  #btn-menu:checked ~ .categories {
+    display: flex;
+  }
+
+  .hero, .pequeña, .pie-pagina {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .pie-pagina {
+    flex-direction: column;
+    gap: 24px;
+    
+    .fact-this {
+      width: 100%;
+    }
+  }
+}
+

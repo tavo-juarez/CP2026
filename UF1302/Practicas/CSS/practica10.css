@@ -1,0 +1,4 @@
+/* selector de "etiqueta", linea 2 (se aplicara a todos los parrafos en el archivo)*/
+p{
+  color: red;
+}

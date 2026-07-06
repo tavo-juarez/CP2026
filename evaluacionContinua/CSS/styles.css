@@ -1,0 +1,171 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+}
+body{
+  margin: 0px;
+
+  
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+h2{
+  margin-bottom: 8px;
+}
+p{
+  margin-bottom: 12px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 32px;
+  margin-top: 8px;
+}
+header div{
+  size: 300px 200px;
+}
+
+nav {
+  display: flex;
+  list-style: none;
+  margin-bottom: 8px;
+}
+nav ul{
+  list-style: none;
+}
+nav ul li{
+  display: inline-block;
+  margin-left: 8px;
+}
+nav ul li a{
+  text-decoration: none;
+}
+/* nav ul li a{
+  text-decoration: none;
+} */
+.hero {
+  margin: 0;
+  height: 500px;
+  width: 100%;
+  color: #fff;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url("/img/hero.jpg");
+  background-size: cover;
+  background-position: center; 
+}
+.contenido {
+  display: flex;
+  color: #000;
+  padding-top: 24px;
+  margin: 0px auto;
+  justify-content: space-between;
+  width: 91%;
+}
+main{
+  margin-bottom: 24px;
+}
+.mas a{
+  margin-right: 8px;
+}
+.contenido img{
+  border-radius: 12px;
+  
+}
+.caja-video{
+  padding-top: 24px;
+  width: 91%;
+  margin: 0px auto;
+}
+
+footer{
+  background-color: #d4e5f9;
+  padding-bottom: 24px;
+  padding-top: 16px;
+}
+.pie-pagina{
+  display: flex;
+  width: 91%;
+  margin: 0 auto;
+}
+.mas a:link{
+  text-decoration: none;
+  color: #0000ff;
+}
+.mas a:visited{
+  text-decoration: none;
+  color: #0000ff;
+}
+.mas a:hover{
+  text-decoration: none;
+  color: #1d898c;
+}
+.mas a:active{
+  text-decoration: none;
+  color: #1d898c;
+}
+.contacte{
+  text-align: center;
+  margin-bottom: 24px;
+}
+.legal, .info{
+  width: 500px;
+  margin-left: 16px;
+}
+
+/* *****************ContenidoPagina***********************/
+.contenidoPagina{
+  display: flex;
+  gap: 24px;
+  margin: 32px;
+
+  img{
+  border-radius: 12px;
+  width: 40%;
+}
+}
+.texto-pagina{
+  margin: 32px;
+}
+ul{
+  margin: 0;
+  list-style: none;
+}
+
+/* *****************Fonts***********************/
+
+.bi-arrow-bar-up::before {
+  font-size: 2em !important;
+  color: #9C2007;
+}
+
+/* ------------Tabla contacte */
+h1{
+  text-align: center;
+  margin-bottom: 32px;
+}
+.info-acces{
+  padding-left: 16px;
+  padding-right: 16px;
+  display: grid;
+  /* Divide el espacio en 2 columnas iguales */
+  grid-template-columns: 1fr 1fr; 
+  /* Añade una separación opcional entre los contenidos */
+  gap: 6px; 
+}
+
+.Acces{
+  border-radius: 8px;
+  text-align: center;
+  background-color: #FEEBE7;
+  font-weight: 700;
+}
+.horarios{
+  td{
+    text-align: center;
+  }
+}

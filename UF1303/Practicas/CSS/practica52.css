@@ -1,0 +1,20 @@
+.aviso::before{
+  content:'Importante:' ;
+  color: #f00;
+}
+
+
+/* p::before {
+  content: "\F7FF"; 
+  font-family: bootstrap-icons;
+  margin-right: 10px;
+} */
+
+
+/* hemos decidido hacerlo por medio de una clase ".icono" 
+para que no se aplique a todas las etiquetas "p" */
+.icono::before{
+  content: "\F7FF"; /* código del icono */
+  font-family: bootstrap-icons;
+  margin-right: 10px;
+}

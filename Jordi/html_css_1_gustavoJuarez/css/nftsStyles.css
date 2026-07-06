@@ -1,0 +1,136 @@
+*{
+  box-sizing: border-box;
+}
+main{
+  margin-bottom: 24px;
+  max-width: 1000px;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #424242;
+  margin-bottom: 24px;
+}
+body{
+  background-color: #eee;
+  margin: 0;
+}
+a{
+  color: #ce2525;
+  text-decoration: none;
+}
+.container{
+  margin: 0 auto;
+  max-width: 800px;
+}
+header{
+  text-align: center;
+  background-color: #fff;
+  padding: 16px;
+}
+header img{
+  width: 300px;
+
+}
+.enlace-underline{
+  text-decoration: underline;
+}
+nav ul{
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+nav ul li{
+  margin-left: 20px;
+}
+nav ul li a{
+  text-decoration: none;
+}
+.container figure{
+  margin: 0;
+  width: 100%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px 0 10px 0;
+}
+.container figure img{
+  width: 95%;
+}
+.titulo-index{
+  text-align: center;
+}
+.profile{
+  display: flex;
+  gap: 24px;
+  padding: 24px 24px;
+  border: 1px solid #ce2525;
+}
+.profile .imagen{
+  width: 30%;
+}
+.profile img{
+  border-radius: 50%;
+}
+.profile .textos{
+  width: 70%;
+}
+.sellers-card img{
+  width: 100%;
+}
+.caja-vacia{
+  display: flex;
+  justify-content: flex-end;
+}
+.dato{
+  max-width: 600px;
+  border-right: 2px solid #ce2525;
+  padding: 16px 16px;
+  background-color: #fff;
+  text-align: right;
+}
+
+.dato p{
+  font-size: 20px;
+}
+footer{
+  background-color: #212121;
+  padding: 16px 16px;
+}
+.contenido-pie{
+  max-width: 1000px;
+  margin: 0 auto;
+}
+footer img{
+  width: 250px;
+}
+footer p{
+  color: #eee;
+}
+
+/* .....................Tipografia.............................. */
+h1{
+  text-align: center;
+}
+.intro{
+  color: #f00;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: larger;
+  font-weight: bold;
+}
+.dark{
+  font-weight: bold;
+  color: #212121;
+}
+.numeracion-rojo li::marker {
+  color: red; /* Cambia 'red' por el color que tú quieras */
+  font-weight: bold; /* Opcional: hace los números más gruesos */
+}
+/* 1. Forzar a que todas las imágenes tengan el mismo tamaño */
+.img-list img {
+  width: 24px;         /* Cambia este valor al tamaño que quieras */
+  height: 24px;        /* Mismo valor para mantenerlas cuadradas */
+  object-fit: contain; /* Evita que las imágenes se deformen o estiren */
+}

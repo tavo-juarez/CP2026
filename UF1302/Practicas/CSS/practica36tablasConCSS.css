@@ -1,0 +1,9 @@
+table.caja{
+  border-spacing: 50px;
+  caption-side: bottom;
+  empty-cells: hide; 
+}
+table.caja td{
+  border: 1px solid black;
+}
+

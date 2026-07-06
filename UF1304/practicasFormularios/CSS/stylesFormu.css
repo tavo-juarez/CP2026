@@ -1,0 +1,78 @@
+*{
+  box-sizing: border-box;
+}
+
+fieldset{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 70%;
+  padding: 12px;
+  margin: 0 auto 24px auto;
+  border-radius: 8px;
+}
+legend{
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+label{
+  width: 10%;
+  margin: 0 0 16px 0;
+}
+label:nth-child(even){
+  margin: 0 0 0 8px;
+}
+input{
+  width: 38%;
+  margin: 0 0 16px 0;
+  padding: 4px 0;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+#label-birth{
+  width: 18%;
+}
+#birth{
+  width: 30%;
+}
+/* .txt-corto{
+  width: 24px;
+} */
+ #got-children{
+  margin-left: 12px;
+ }
+#yes-children, #no-children{
+  width: auto;
+}
+#txt-nchildren{
+  margin-left: 8px;
+} 
+.container-children{
+  width: 50%;
+  /* display: flex; */
+}
+/* .container-children:nth-child(even){
+  width: 51%;
+} */
+
+/* #person-address{
+  width: 100%;
+} */
+
+.fila-xl{
+  width: 100%;
+
+  label{
+    /* margin-right: 12px; */
+    margin: 0 12px 0 2px;
+  }
+}
+input[type="checkbox"]{
+  width: auto;
+}
+input[type="range"]{
+  /* width: auto; */
+}
+textarea{
+  width: 100%;
+}

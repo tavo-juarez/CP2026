@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="css/styles.css">
+  <title>JS</title>
+</head>
+
+<body>
+  <header class="cabeza">
+    <h1>Cosas increibles que puedo hacer con javaScript</h1>
+  </header>
+  <section class="botonera">
+    <button type="button" class="btn btn-info"
+      onclick="document.getElementById('parrafo').innerHTML = 'flipa y reflipa'">Cambiar contenido</button>
+    <button type="button" class="btn btn-warning" onclick="window.location.reload()">Inicio</button>
+    <button type="button" class="btn btn-secondary"
+      onclick="document.querySelector('.foto').src = 'img/mar.jpg'">Mar</button>
+    <button type="button" class="btn btn-secondary"
+      onclick="document.querySelector('.foto').src = 'img/creature.jpg'">Creatura</button>
+
+    <button type="button" class="btn btn-light" onclick="document.querySelector('.cabeza').style.background = '#E9D8F0'">Cambiar estilo</button>
+    <!-- <button type="button" class="btn btn-dark" onclick="document.querySelector('.otra-seccion').style.display ='none'">Ocultar</button>
+    <button type="button" class="btn btn-dark" onclick="document.querySelector('.otra-seccion').style.display ='block'">Mostrar</button> -->
+
+    <button type="button" class="btn btn-dark" onclick="document.querySelector('.otra-seccion').style.visibility ='hidden'">Ocultar</button>
+    <button type="button" class="btn btn-dark" onclick="document.querySelector('.otra-seccion').style.visibility ='visible'">Mostrar</button>
+    <!---->
+  </section>
+  <section class="texto">
+    <p id="parrafo">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit qui voluptate aliquid at beatae iste ratione.
+      Velit, praesentium ea quis recusandae veritatis pariatur, reprehenderit quae porro accusamus vitae possimus
+      consectetur numquam delectus adipisci voluptates distinctio! Officia quia minima sunt, assumenda ea ex illum ullam
+      nisi, expedita ipsa accusantium dolore corrupti modi ipsum voluptatum quidem veritatis porro ipsam quisquam vitae
+      inventore cum! Dolorum doloribus voluptas esse aspernatur dicta repudiandae expedita blanditiis sunt nesciunt
+      quisquam soluta voluptatum, eaque pariatur consectetur? Commodi perferendis minima et odit repudiandae, accusamus
+      distinctio tempore pariatur aspernatur nihil nisi quia. Cum dolorum possimus rerum ipsam eligendi aperiam voluptas
+      nisi quas quod veniam, nam natus hic qui inventore, sint enim sequi, molestias reprehenderit exercitationem optio
+      delectus a! Repellendus modi expedita consequatur nostrum ut amet dignissimos voluptate non minus, obcaecati atque
+      quia nobis quidem ab. Numquam est eveniet modi nemo quos. Quos, facere dolorum! Deserunt aliquid quasi consectetur
+      quae eius!
+    </p>
+    <div>
+      <img class="foto" src="img/mar.jpg" alt="">
+    </div>
+  </section>
+  <div class="otra-seccion">
+    <h2>Esto se acaba</h2>
+  </div>
+  <footer class="pie">
+
+  </footer>
+
+<script src="scripts.js"></script>
+</body>
+
+</html>

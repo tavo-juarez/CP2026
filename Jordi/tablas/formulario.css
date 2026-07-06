@@ -1,0 +1,55 @@
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
+.formulari{
+  width: 1200px;
+  margin: 6px auto;
+}
+.c1{
+  width: 33%;
+}
+.c2{
+  width: 33.5%;
+}
+.c3{
+  width: 33.5%;
+}
+.titol{
+  background-color: #c5524c;
+  color: #fff;
+  letter-spacing: 1px;
+  vertical-align: bottom;
+  padding-bottom: 8px;
+  font-size: 45px;
+  font-weight: bold;
+  font-variant: small-caps;
+}
+.seccio{
+  font-variant: small-caps;
+  background-color: #e7cfcf;
+  color: #9d3019;
+  font-weight: bold;
+  height: 60px;
+}
+table{
+  border: 2px solid #9f3e39;
+  border-collapse: collapse;
+  background-color: #fefefe;
+  width: 100%;
+}
+td, th{
+  border: 1px dashed #c8827c;
+  color: #9f3e39;
+  padding: 10px 12px;
+  font-size: 20px;
+  text-align: left;
+  vertical-align: middle;
+}
+.check{
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #9f3e39;
+  margin-right: 12px;
+  vertical-align: middle;
+}

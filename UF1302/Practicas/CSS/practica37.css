@@ -1,0 +1,33 @@
+body{
+  font-family: "Denk One", sans-serif;
+  font-weight: 100;
+  font-style: normal;
+}
+
+table.caja{
+  caption-side: bottom;
+  width: 50%;
+  text-align: center;
+  margin: 30px auto;
+}
+table.caja th, table.caja tfoot td{
+  background-color: #1d5565;
+  color: #fff;
+}
+
+/* table.caja tfoot td{
+  background-color: #1d5565;
+  color: #fff;
+} */
+table.caja tr:nth-child(odd){
+  background-color: #b8d1f3;
+}
+table.caja tr:nth-child(even){
+  background-color: #dae5f4;
+}
+table.caja tr:hover{
+  background-color: orange;
+}
+/* table.caja td:hover{
+  background-color: orange;
+} */
