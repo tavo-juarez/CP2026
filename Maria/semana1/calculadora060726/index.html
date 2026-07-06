@@ -7,12 +7,42 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<main class="calculadora">
-  <h1>Calculadora molona</h1>
+<main class="calculator">
+  <h1>Cool calculator</h1>
   <section class="name-zone">
     <input type="text" id="name" placeholder="Tu nombre aqui">
     <button onclick="saludar()">Saludar</button>
     <p id="greeting"></p>
+  </section>
+  <section class="calculator-zone">
+    <div class="keyboard">
+      <button onclick="draw('7')">7</button>
+      <button onclick="draw('8')">8</button>
+      <button onclick="draw('9')">9</button>
+      <button onclick="draw('/')">/</button>
+
+      <button onclick="draw('4')">4</button>
+      <button onclick="draw('5')">5</button>
+      <button onclick="draw('6')">6</button>
+      <button onclick="draw('*')">*</button>
+
+      <button onclick="draw('1')">1</button>
+      <button onclick="draw('2')">2</button>
+      <button onclick="draw('3')">3</button>
+      <button onclick="draw('-')">-</button>
+
+      <button onclick="draw('0')">0</button>
+      <button onclick="draw('.')">.</button>
+      <button onclick="resetScreen()">C</button>
+      <button onclick="draw('+')">+</button>
+    </div>
+    <button class="equal-button" onclick="calculate()">=</button>
+    <input type="text" id="screen" placeholder="result" readonly>
+  </section>
+  <p id="comment"></p>
+  <section class="extra">
+    <button onclick="partyMode()">Modo fiesta</button>
+    <button onclick="totalReset()">Limpiar todo</button>
   </section>
 </main>
 
