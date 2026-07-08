@@ -1,19 +1,29 @@
-*{
-  box-sizing: border-box;
-  margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
-main{
-  height: 100vh;
-  background-color: azure;
-  display: flex;
-  flex-wrap: wrap;
+
+main {
+    height: 100vh;
+    background-color: azure;
+    display: flex;
+    flex-wrap: wrap;
 }
-div{
-  width: 50%;
-  height: 50vh;
-  border: solid 1px #000;
+
+div {
+    width: 50%;
+    height: 50vh;
+    border: 1px solid gray;
 }
-.disco{
-  gap: 8px;
+
+.form-control{
+    width: 80%;
+    margin: .5em;
+}
+
+p {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: coral;
 }
