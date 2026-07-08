@@ -1,0 +1,19 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+main{
+  height: 100vh;
+  background-color: azure;
+  display: flex;
+  flex-wrap: wrap;
+}
+div{
+  width: 50%;
+  height: 50vh;
+  border: solid 1px #000;
+}
+.disco{
+  gap: 8px;
+}
