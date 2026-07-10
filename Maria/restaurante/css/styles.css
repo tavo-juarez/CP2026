@@ -1,24 +1,71 @@
-*{
-  box-sizing: border-box;
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300..800;1,300..800&display=swap");
+
+* {
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Host Grotesk", sans-serif;
 }
 
-.restaurant{
-  height: 100vh;
+.restaurant {
+  text-align: center;
+  color: #000;
+  font-weight: 800;
+  font-size: 2.5em;
+  /* height: 100vh; */
+
+  .banner {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+    background-color: white;
+    border-top: 1.5px solid black;
+    border-bottom: 1.5px solid black;
+    padding: 12px 0;
+
+    .banner-texto {
+      display: flex;
+      white-space: nowrap;
+      animation: mover 30s linear infinite;
+
+      span {
+        color: #FA2605;
+        font-size: 16px;
+        font-weight: bold;
+        margin-right: 32px;
+        text-transform: uppercase;
+      }
+    }
+  }
+}
+
+@keyframes mover {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.creatures {
   display: flex;
 
-  .vampiros{
-    background-color: #611002;
+  .vampiros {
+    background-image: url("../img/vampireSmall.jpg");
+    background-size: cover;
     width: 50%;
     height: 100vh;
   }
 
-  .angels{
-    background-color: #DEF3FF;
+  .angels {
+    background-image: url("../img/angel.jpg");
+    background-size: cover;
     width: 50%;
     height: 100vh;
   }
-}
-.creditos{
-  background-color: blue;
 }
