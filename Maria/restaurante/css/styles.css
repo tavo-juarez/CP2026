@@ -1,0 +1,24 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+}
+
+.restaurant{
+  height: 100vh;
+  display: flex;
+
+  .vampiros{
+    background-color: #611002;
+    width: 50%;
+    height: 100vh;
+  }
+
+  .angels{
+    background-color: #DEF3FF;
+    width: 50%;
+    height: 100vh;
+  }
+}
+.creditos{
+  background-color: blue;
+}
