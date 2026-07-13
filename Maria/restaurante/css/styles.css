@@ -15,6 +15,7 @@
   /* height: 100vh; */
 
   .banner {
+    display: flex;
     width: 100vw;
     position: relative;
     left: 50%;
