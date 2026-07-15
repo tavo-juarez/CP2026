@@ -1,0 +1,86 @@
+const bebidas = [
+  {
+    bebida: 1,
+    precio: 10,
+    nombre: "Sangre Fria",
+    ingrediente: ["sangre"],
+    humana: false,
+    animal: false,
+  },
+  {
+    bebida: 2,
+    precio: 12,
+    nombre: "Sangre Caliente",
+    ingrediente: ["sangre"],
+    humana: false,
+    animal: false,
+  },
+  {
+    bebida: 3,
+    precio: 11.5,
+    nombre: "Organos Licuados",
+    ingrediente: ["Higado, pulmon"],
+    humana: false,
+    animal: false,
+  },
+  {
+    bebida: 4,
+    precio: 12,
+    nombre: "Cuerdas Jugosas",
+    ingrediente: ["Venas, Tendones, Ligamentos"],
+    humana: false,
+    animal: false,
+  },
+  {
+    bebida: 5,
+    precio: 12,
+    nombre: "Cuerdas Jugosas",
+    ingrediente: ["Venas, Tendones, Ligamentos"],
+    humana: false,
+    animal: false,
+  },
+]
+
+const menus = [
+  {
+    menu: 1,
+    precio: 10,
+    nombre: "Sangre Fria",
+    ingrediente: ["sangre"],
+    humana: false,
+    animal: false,
+  },
+  {
+    menu: 2,
+    precio: 12,
+    nombre: "Sangre Caliente",
+    ingrediente: ["sangre"],
+    humana: false,
+    animal: false,
+  },
+  {
+    menu: 3,
+    precio: 11.5,
+    nombre: "Organos Licuados",
+    ingrediente: ["Higado, pulmon"],
+    humana: false,
+    animal: false,
+  },
+  {
+    menu: 4,
+    precio: 12,
+    nombre: "Cuerdas Jugosas",
+    ingrediente: ["Venas, Tendones, Ligamentos"],
+    humana: false,
+    animal: false,
+  },
+  {
+    menu: 5,
+    precio: 12,
+    nombre: "Cuerdas Jugosas",
+    ingrediente: ["Venas, Tendones, Ligamentos"],
+    humana: false,
+    animal: false,
+  },
+]
+

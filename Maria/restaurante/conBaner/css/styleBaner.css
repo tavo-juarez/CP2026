@@ -1,0 +1,116 @@
+@import url("https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@300;400;500;700;800&display=swap");
+
+/* ==========================
+   RESET
+========================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Host Grotesk", sans-serif;
+  overflow-x: hidden;
+}
+
+/* ==========================
+   CONTENEDOR PRINCIPAL
+========================== */
+
+.restaurant {
+  width: 100%;
+}
+
+/* ==========================
+   CABECERA
+========================== */
+
+.nombre-baner {
+  width: 100%;
+}
+
+/* Título */
+
+.nombre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 0 0;
+  font-size: 1.5em;
+  font-weight: 800;
+  color: #000;
+  text-align: center;
+}
+
+/* ==========================
+   BANNER
+========================== */
+
+.banner {
+  width: 100%;
+  overflow: hidden;
+
+  border-top: 2px solid #000;
+  border-bottom: 2px solid #000;
+
+  background: #fff;
+  padding: 12px 0;
+}
+
+.banner-track {
+  display: flex;
+  width: max-content;
+  animation: mover 25s linear infinite;
+}
+
+.banner-texto {
+  display: flex;
+  flex-shrink: 0;
+}
+
+.banner-texto span {
+  white-space: nowrap;
+  color: #fa2605;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 700;
+  margin-right: 50px;
+}
+
+@keyframes mover {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* ==========================
+   IMÁGENES
+========================== */
+
+.creatures {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+}
+
+.vampiros,
+.angels {
+  width: 50%;
+  background-size: cover;
+  background-position: center;
+}
+
+.vampiros {
+  background-image: url("../img/vampireSmall.jpg");
+}
+
+.angels {
+  background-image: url("../img/angel.jpg");
+}
