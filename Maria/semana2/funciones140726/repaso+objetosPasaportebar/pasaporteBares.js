@@ -1,78 +1,64 @@
-//Array de los bares
 const bares = [
-  // Bar 1
   {
     id: 1,
     nombre: "Bar Atlanta",
     visitado: false,
   },
-  // Bar 2
   {
     id: 2,
     nombre: "Bar El Toro",
     visitado: false,
   },
-  // Bar 3
   {
     id: 3,
     nombre: "Fat Cat",
     visitado: false,
   },
-  // Bar 4
   {
     id: 4,
     nombre: "La Prudència",
     visitado: false,
   },
-  // Bar 5
   {
     id: 5,
     nombre: "Las Fernández",
     visitado: false,
   },
-  // Bar 6
   {
     id: 6,
     nombre: "Nun Cultural Café",
     visitado: false,
   },
-  // Bar 7
   {
     id: 7,
     nombre: "Chula Vista",
     visitado: false,
   },
-  // Bar 8
   {
     id: 8,
     nombre: "El Magraner Boig",
     visitado: false,
   },
-  // Bar 9
   {
     id: 9,
     nombre: "El Cafetí",
     visitado: false,
   },
-  // Bar 10
   {
     id: 10,
     nombre: "La Ravala",
     visitado: false,
   },
-  // Bar 11
   {
     id: 11,
     nombre: "La Monroe",
     visitado: false,
   },
-  // Bar 12
   {
     id: 12,
     nombre: "Arume",
     visitado: false,
   },
-  // Bar 13
   {
     id: 13,
     nombre: "La Morera",
@@ -109,12 +95,9 @@ const bares = [
     visitado: false,
   },
 ];
-// console.log(bares[3].id)
-// for(let i=0; i < bares.length; i++){
-//   console.log(bares[i].nombre)
-// }
 
-// ---------------Acceso y saludo---------------------------
+// Acceso y saludo
+const btnEntrar = document.getElementById("btnEntrar");
 
 function obtenerNombreUsuario() {
   const nombre = document.getElementById("nombre").value;
@@ -134,13 +117,10 @@ function mostrarSaludo(nombre) {
   saludo.textContent = `Hola ${nombre}`;
 }
 
-// Listener:
-const btnEntrar = document.getElementById("btnEntrar");
-
 btnEntrar.addEventListener("click", function () {
   const nombre = obtenerNombreUsuario();
   if (nombreValido(nombre) === false) {
-    document.getElementById("mensajeAcceso").textContent = "Introduce tu nombre";
+    document.getElementById("mensajeAcceso").textContent = "¡Introduce tu nombre!";
     return;
   }
   document.getElementById("mensajeAcceso").textContent = "";
@@ -149,13 +129,10 @@ btnEntrar.addEventListener("click", function () {
   document.getElementById("acceso").style.display = "none";
   document.getElementById("pasaporte").style.display = "block";
 
-  mostrarBares()
+  actualizarAplicacion();
 });
 
-
-
-
-// --------- Gestionamos los bares      /       Recorrido y sellos-------------------
+// Gestionamos los bares
 
 function buscarBarPorId(idBar) {
   for (let i = 0; i < bares.length; i++) {
@@ -174,19 +151,17 @@ function sellarBar(idBar) {
   }
 
   if (bar.visitado === true) {
-    return "Este bar ya esta sellado";
+    return "Este bar ya estaba sellado";
   }
 
   bar.visitado = true;
   return `Has sellado tu visita en ${bar.nombre}`;
 }
 
-//----------funcion para mostrar los bares---------
-
+// función para mostrar los bares
 function mostrarBares() {
   const listaBares = document.getElementById("listaBares");
   listaBares.innerHTML = "";
-
   for (let i = 0; i < bares.length; i++) {
     const tarjeta = document.createElement("article");
     const numero = document.createElement("p");
@@ -207,21 +182,80 @@ function mostrarBares() {
       boton.disabled = true;
       tarjeta.classList.add("bar-visitado");
     } else {
-      estado.textContent = "Pendiente";
+      estado.textContent = " Pendiente";
       boton.textContent = "Sellar visita";
     }
-    boton.addEventListener('click', function(){
-      const mensaje = sellarBar(bares[i].id)
-      document.getElementById('mensajeSello').textContent = mensaje
-      mostrarBares
-    })
 
-    // todo esto pasa en la seccion:  listaBares
-    tarjeta.appendChild(numero)
-    tarjeta.appendChild(nombre)
-    tarjeta.appendChild(boton)
+    boton.addEventListener("click", function () {
+      const mensaje = sellarBar(bares[i].id);
+      document.getElementById("mensajeSello").textContent = mensaje;
+      actualizarAplicacion();
+    });
 
-    listaBares.appendChild(tarjeta)
+    tarjeta.appendChild(numero);
+    tarjeta.appendChild(nombre);
+    tarjeta.appendChild(estado);
+    tarjeta.appendChild(boton);
 
+    listaBares.appendChild(tarjeta);
   }
+}
+
+function contarBaresVisitados() {
+  let contador = 0;
+
+  for (let i = 0; i < bares.length; i++) {
+    if (bares[i].visitado === true) {
+      contador++;
+    }
+  }
+  return contador;
+}
+
+function calcularPorcentaje(visitados, total) {
+  const porcentaje = (visitados / total) * 100;
+  return Math.round(porcentaje);
+}
+
+function crearMensajeProgreso(visitados, total) {
+  const porcentaje = calcularPorcentaje(visitados, total);
+  const mensaje = `Has visitado ${visitados} bares, de un total de ${total} bares. 
+  Tu progreso es de un ${porcentaje}%`;
+  return mensaje;
+}
+
+function mostrarProgreso() {
+  const visitados = contarBaresVisitados();
+  const total = bares.length;
+  const mensaje = crearMensajeProgreso(visitados, total);
+  document.getElementById("progreso").textContent = mensaje;
+}
+
+function comprobarPasaporteCompleto() {
+  const visitados = contarBaresVisitados();
+  const total = bares.length;
+
+  if (visitados === total) {
+    return "Pasaporte completo";
+  }
+  const pendientes = total - visitados;
+  return `Te faltan ${pendientes} bares por visitar.`;
+}
+
+function mostrarEstadoPasaporte(){
+  const mensaje = comprobarPasaporteCompleto()
+  document.getElementById('estadoPasaporte').textContent = mensaje
+}
+
+function actualizarBarraProgreso(){
+  const visitados = contarBaresVisitados()
+  const porcentaje = calcularPorcentaje(visitados, bares.length)
+  document.querySelector('.barraProgreso').style.width = `${porcentaje}%`
+}
+
+function actualizarAplicacion(){
+  mostrarBares()
+  mostrarProgreso()
+  mostrarEstadoPasaporte()
+  actualizarBarraProgreso()
 }
