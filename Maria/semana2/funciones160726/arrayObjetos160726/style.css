@@ -1,0 +1,61 @@
+*{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+}
+
+body{
+  padding: 2em;
+  background-color: #f5f2ff;
+  color: #202020;
+}
+
+header{
+  margin: 0 auto;
+
+  h1{
+    font-size: clamp(3em, 8vw, 5em);
+    line-height: 1.5em;
+  }
+
+  p{
+    font-size: 1.3em;
+    margin-bottom: .5em;
+  }
+}
+
+.miniTitulo{
+  margin-bottom: .5em;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+}
+
+/* Tarjetas */
+#listaPlanes{
+  display: flex;
+  flex-wrap: wrap;
+  margin: auto;
+  gap: 2em;
+}
+
+.tarjeta{
+  flex: 1;
+  overflow: hidden;
+  border: 0.5px solid #202020;
+  border-radius: 24px;
+  box-shadow: 0.3em 0.2em 0 #b1afaf;
+  padding: 8px;
+
+  .contenedorImagen{
+    overflow: hidden;
+    border-bottom: 0.5px solid #202020;
+    border-radius: 16px;
+    height: 15em;
+
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+}

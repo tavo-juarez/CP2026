@@ -1,6 +1,8 @@
-const bebidas = [
+const bebida = [
+  //bebidas vampiros
   {
     bebida: 1,
+    cliente: vampiro,
     precio: 10,
     nombre: "Sangre Fria",
     ingrediente: ["sangre"],
@@ -9,14 +11,16 @@ const bebidas = [
   },
   {
     bebida: 2,
-    precio: 12,
-    nombre: "Sangre Caliente",
+    cliente: vampiro,
+    precio: 10,
+    nombre: "Sangre Fria",
     ingrediente: ["sangre"],
     humana: false,
     animal: false,
   },
   {
     bebida: 3,
+    cliente: vampiro,
     precio: 11.5,
     nombre: "Organos Licuados",
     ingrediente: ["Higado, pulmon"],
@@ -25,25 +29,18 @@ const bebidas = [
   },
   {
     bebida: 4,
+    cliente: vampiro,
     precio: 12,
     nombre: "Cuerdas Jugosas",
     ingrediente: ["Venas, Tendones, Ligamentos"],
     humana: false,
     animal: false,
   },
+  
+  //bebidas Angeles
   {
-    bebida: 5,
-    precio: 12,
-    nombre: "Cuerdas Jugosas",
-    ingrediente: ["Venas, Tendones, Ligamentos"],
-    humana: false,
-    animal: false,
-  },
-]
-
-const menus = [
-  {
-    menu: 1,
+    bebida: 1,
+    cliente: vampiro,
     precio: 10,
     nombre: "Sangre Fria",
     ingrediente: ["sangre"],
@@ -51,15 +48,17 @@ const menus = [
     animal: false,
   },
   {
-    menu: 2,
-    precio: 12,
-    nombre: "Sangre Caliente",
+    bebida: 2,
+    cliente: vampiro,
+    precio: 10,
+    nombre: "Sangre Fria",
     ingrediente: ["sangre"],
     humana: false,
     animal: false,
   },
   {
-    menu: 3,
+    bebida: 3,
+    cliente: vampiro,
     precio: 11.5,
     nombre: "Organos Licuados",
     ingrediente: ["Higado, pulmon"],
@@ -67,20 +66,13 @@ const menus = [
     animal: false,
   },
   {
-    menu: 4,
+    bebida: 4,
+    cliente: vampiro,
     precio: 12,
     nombre: "Cuerdas Jugosas",
     ingrediente: ["Venas, Tendones, Ligamentos"],
     humana: false,
     animal: false,
   },
-  {
-    menu: 5,
-    precio: 12,
-    nombre: "Cuerdas Jugosas",
-    ingrediente: ["Venas, Tendones, Ligamentos"],
-    humana: false,
-    animal: false,
-  },
-]
 
+];
