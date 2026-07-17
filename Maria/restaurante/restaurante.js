@@ -1,78 +1,90 @@
-const bebida = [
-  //bebidas vampiros
+const menu = [
+//----------------Bebidas Vampiros-----------
   {
-    bebida: 1,
+    // id: 1,
+    cliente: vampiro,
+    precio: 15,
+    tipo: ['AB-', 'B-','AB+'],
+    rareza: 'alta',
+    ingrediente: ["sangre"],
+    nombre: 'Sangre Dorada',
+  },
+  {
+    // id: 2,
     cliente: vampiro,
     precio: 10,
-    nombre: "Sangre Fria",
+    tipo: ['A-', 'O-','B+'],
+    rareza: 'intermedia',
     ingrediente: ["sangre"],
-    humana: false,
-    animal: false,
+    nombre: 'Sangre Plateada',
   },
   {
-    bebida: 2,
+    // id: 3,
     cliente: vampiro,
-    precio: 10,
-    nombre: "Sangre Fria",
+    precio: 7.5,
+    tipo: ['A+', 'O+'],
+    rareza: 'baja',
     ingrediente: ["sangre"],
-    humana: false,
-    animal: false,
+    nombre: 'Sangre Simple',
   },
   {
-    bebida: 3,
+    // id: 4,
     cliente: vampiro,
-    precio: 11.5,
-    nombre: "Organos Licuados",
-    ingrediente: ["Higado, pulmon"],
-    humana: false,
-    animal: false,
-  },
-  {
-    bebida: 4,
-    cliente: vampiro,
-    precio: 12,
-    nombre: "Cuerdas Jugosas",
-    ingrediente: ["Venas, Tendones, Ligamentos"],
-    humana: false,
-    animal: false,
+    precio: 35,
+    tipo: ['Rh'],
+    rareza: 'Muy alta',
+    ingrediente: ["sangre"],
+    nombre: 'Sangre de Cristal',
   },
   
-  //bebidas Angeles
-  {
-    bebida: 1,
-    cliente: vampiro,
-    precio: 10,
-    nombre: "Sangre Fria",
-    ingrediente: ["sangre"],
-    humana: false,
-    animal: false,
-  },
-  {
-    bebida: 2,
-    cliente: vampiro,
-    precio: 10,
-    nombre: "Sangre Fria",
-    ingrediente: ["sangre"],
-    humana: false,
-    animal: false,
-  },
-  {
-    bebida: 3,
-    cliente: vampiro,
-    precio: 11.5,
-    nombre: "Organos Licuados",
-    ingrediente: ["Higado, pulmon"],
-    humana: false,
-    animal: false,
-  },
-  {
-    bebida: 4,
-    cliente: vampiro,
-    precio: 12,
-    nombre: "Cuerdas Jugosas",
-    ingrediente: ["Venas, Tendones, Ligamentos"],
-    humana: false,
-    animal: false,
-  },
 
+  //----------------Bebidas Angeles-----------
+
+  {
+    // id: 5,
+    cliente: angel,
+    precio: 10,
+    tipo: ['Alegre', 'Empaticx','Divertidx'],
+    rareza: 'alta',
+    ingrediente: ["Espiritu"],
+    nombre: 'Alma Dorada',
+  },
+  {
+    // id: 6,
+    cliente: angel,
+    precio: 10,
+    tipo: ['Neutral', 'Sencillx','Amigable'],
+    rareza: 'intermedia',
+    ingrediente: ["Espiritu"],
+    nombre: 'Alma Plateada',
+  },
+  {
+    // id: 7,
+    cliente: angel,
+    precio: 10,
+    tipo: ['Pretenciosx', 'Simple','Egoista'],
+    rareza: 'baja',
+    ingrediente: ["Espiritu"],
+    nombre: 'Alma de facha',
+  },
+  {
+    // id: 8,
+    cliente: angel,
+    precio: 10,
+    tipo: ['Alegre', 'Empaticx','Divertidx','Resilient','Criticx'],
+    rareza: 'alta',
+    ingrediente: ['Alegre', 'Empaticx','Divertidx','Resilient'],
+    nombre: 'Alma Humana',
+  },
+ 
 ];
+
+//----------------Funciones-----------
+
+function tipoDeCreatura() {
+  if (menu.cliente === 'vampiro') {
+    return true;
+  } else {
+    return false;
+  }
+}
