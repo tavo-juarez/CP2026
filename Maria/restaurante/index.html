@@ -11,15 +11,26 @@
 
   <main class="restaurant">
     <nav class="nombre">
-      <button id="comoSangre">I eat blood</button>
+      <button class="vampiro" id="btnVampiro">I eat blood</button>
       <h1>Rh21</h1>
-      <button id="comoAlmas">I eat souls</button>
+      <button class="angel" id="btnAngel">I eat souls</button>
     </nav>
 
     <section class="creatures">
       <div class="vampiros" id="vampiros">
-        <H2>Vampires menu</H2>
+        <div class="bebidas" id="bebidas">
+          <H2>Vampires Drinks</H2>
+          <h3 class="nombreBebida" id="nombreBebida"></h3>
+          <p class="ingrediente" id="ingrediente"></p>
+          <label for="menu">Blood type:</label>
 
+          <select id="tipoDeSangre" name="tipoDeSangre">
+            <option value="">-- Choose blood type --</option>
+            <option value="AB-">AB</option>
+            <option value="B-">B-</option>
+            <option value="AB+">AB+</option>
+          </select>
+        </div>
       </div>
 
 

@@ -1,90 +1,107 @@
 const menu = [
-//----------------Bebidas Vampiros-----------
+  //----------------Bebidas Vampiros-----------
   {
     // id: 1,
-    cliente: vampiro,
+    cliente: 'vampiro',
     precio: 15,
-    tipo: ['AB-', 'B-','AB+'],
-    rareza: 'alta',
+    tipo: ["AB-", "B-", "AB+"],
+    rareza: "alta",
     ingrediente: ["sangre"],
-    nombre: 'Sangre Dorada',
+    nombre: "Sangre Dorada",
   },
   {
     // id: 2,
-    cliente: vampiro,
+    cliente: 'vampiro',
     precio: 10,
-    tipo: ['A-', 'O-','B+'],
-    rareza: 'intermedia',
+    tipo: ["A-", "O-", "B+"],
+    rareza: "intermedia",
     ingrediente: ["sangre"],
-    nombre: 'Sangre Plateada',
+    nombre: "Sangre Plateada",
   },
   {
     // id: 3,
-    cliente: vampiro,
+    cliente: 'vampiro',
     precio: 7.5,
-    tipo: ['A+', 'O+'],
-    rareza: 'baja',
+    tipo: ["A+", "O+"],
+    rareza: "baja",
     ingrediente: ["sangre"],
-    nombre: 'Sangre Simple',
+    nombre: "Sangre Simple",
   },
   {
     // id: 4,
-    cliente: vampiro,
+    cliente: 'vampiro',
     precio: 35,
-    tipo: ['Rh'],
-    rareza: 'Muy alta',
+    tipo: ["Rh"],
+    rareza: "Muy alta",
     ingrediente: ["sangre"],
-    nombre: 'Sangre de Cristal',
+    nombre: "Sangre de Cristal",
   },
-  
 
   //----------------Bebidas Angeles-----------
 
   {
     // id: 5,
-    cliente: angel,
+    cliente: 'angel',
     precio: 10,
-    tipo: ['Alegre', 'Empaticx','Divertidx'],
-    rareza: 'alta',
+    tipo: ["Alegre", "Empaticx", "Divertidx"],
+    rareza: "alta",
     ingrediente: ["Espiritu"],
-    nombre: 'Alma Dorada',
+    nombre: "Alma Dorada",
   },
   {
     // id: 6,
-    cliente: angel,
+    cliente: 'angel',
     precio: 10,
-    tipo: ['Neutral', 'Sencillx','Amigable'],
-    rareza: 'intermedia',
+    tipo: ["Neutral", "Sencillx", "Amigable"],
+    rareza: "intermedia",
     ingrediente: ["Espiritu"],
-    nombre: 'Alma Plateada',
+    nombre: "Alma Plateada",
   },
   {
     // id: 7,
-    cliente: angel,
+    cliente: 'angel',
     precio: 10,
-    tipo: ['Pretenciosx', 'Simple','Egoista'],
-    rareza: 'baja',
+    tipo: ["Pretenciosx", "Simple", "Egoista"],
+    rareza: "baja",
     ingrediente: ["Espiritu"],
-    nombre: 'Alma de facha',
+    nombre: "Alma de facha",
   },
   {
     // id: 8,
-    cliente: angel,
+    cliente: 'angel',
     precio: 10,
-    tipo: ['Alegre', 'Empaticx','Divertidx','Resilient','Criticx'],
-    rareza: 'alta',
-    ingrediente: ['Alegre', 'Empaticx','Divertidx','Resilient'],
-    nombre: 'Alma Humana',
+    tipo: ["Alegre", "Empaticx", "Divertidx", "Resilient", "Criticx"],
+    rareza: "alta",
+    ingrediente: ["Alegre", "Empaticx", "Divertidx", "Resilient"],
+    nombre: "Alma Humana",
   },
- 
 ];
 
-//----------------Funciones-----------
+let btnVampiro = document.getElementById("btnVampiro");
+let btnAngel = document.getElementById("btnAngel");
 
-function tipoDeCreatura() {
-  if (menu.cliente === 'vampiro') {
-    return true;
+let creature 
+
+//-------------------------------------Funciones---------------------------
+
+// Filtrar creatura
+
+btnVampiro.addEventListener("click", () => {
+  let creature = "vampiro";
+});
+
+btnAngel.addEventListener("click", () => {
+  let creature = "angel";
+});
+
+// Filtrar creatura
+
+function mostrarMenu(creatura) {
+  if (creatura === "vampiro") {
+    // let nombre = document.getElementById("nombreBebida");
+    // nombre.textContent = `${nombre}`;
+    console.log(2)
   } else {
-    return false;
+    console.log(3)
   }
 }
