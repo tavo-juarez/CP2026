@@ -42,78 +42,86 @@ btnAñadir.addEventListener("click", añadirMensaje);
 
 campoMensaje.addEventListener("keydown", comprobarTecla);
 
+
+
+
 //---------------    Funciones      -----------------------------------------
 
 function identificarUsuario() {
-  // alert("hola");
-  let nombre = prompt("Como te llamas?");
-  if (nombre === null || nombre === "") {
-    saludo.textContent = "Hola visitante";
-  } else {
-    saludo.textContent = `Hola ${nombre}`;
-  }
+    // alert('hola')
+    let nombre = prompt('¿Cómo te llamas?')
+    if (nombre === null || nombre === '') {
+        saludo.textContent = 'Hola, visitante'
+        mostrarNotificaciones('Usuario no identificado')
+    } else {
+        saludo.textContent = `Hola, ${nombre}`
+        mostrarNotificaciones('Usuario identificado')
+    }
+
 }
 
 
 function actualizarTamaño() {
-  tamañoVentana.textContent = window.innerWidth + "x" + window.innerHeight;
+    tamañoVentana.textContent = window.innerWidth + ' x ' + window.innerHeight
 }
 
 
 function actualizarConexion() {
-  if (navigator.onLine === true) {
-    estadoConexion.textContent = "en linea";
-  } else {
-    estadoConexion.textContent = "Sin conexion";
-  }
+    if (navigator.onLine === true) {
+        estadoConexion.textContent = 'En línea'
+    } else {
+        estadoConexion.textContent = 'Sin conexión'
+    }
 }
 
 
 function cambiarTitulo() {
-  let nuevoTitulo = prompt("Escribe lo que quieras");
-  if (nuevoTitulo !== null && nuevoTitulo !== "") {
-    document.title = nuevoTitulo;
-  }
+    let nuevoTitulo = prompt('Escribe un título para la pestaña')
+    if (nuevoTitulo !== null && nuevoTitulo !== '') {
+        document.title = nuevoTitulo
+    }
 }
 
 
 function cambiarModo() {
-  document.body.classList.toggle("modoNocturno");
-  if (document.body.classList.contains("modoNocturno")) {
-    btnModo.textContent = "Modo claro";
-  } else {
-    btnModo.textContent = "Modo oscuro";
-  }
+    document.body.classList.toggle('modoNocturno')
+    if (document.body.classList.contains('modoNocturno')) {
+        btnModo.textContent = 'Modo claro'
+    } else {
+        btnModo.textContent = 'Modo oscuro'
+    }
+
 }
 
 
 function mostrarMensajes() {
-  listaMensajes.innerHTML = "";
+    listaMensajes.innerHTML = ''
 
-  //recorremos el array con un bucle para agragar cada vez el mensaje nuevo
+    //recorremos el array con un bucle para agragar cada vez el mensaje nuevo
   // for (let mensaje of mensajes)
-  for (let i = 0; i < mensajes.length; i++) {
-    let mensaje = mensajes[i];
+    for (let i = 0; i < mensajes.length; i++) {
+        let mensaje = mensajes[i]
 
-    listaMensajes.innerHTML +=  //  += para añadir cada vez y no sustituir con =
-      
-      `<article class='mensaje'>
-    <p>${mensaje}</p>
-    <button class='btnEliminar' data-indice='${i}'>Eliminar</button> 
-    </article>`;
-  }
+        listaMensajes.innerHTML += //  += para añadir cada vez y no sustituir con =
+        `<article class="mensaje">
+        <p>${mensaje}</p>
+        <button class='btnEliminar' data-indice='${i}'>Eliminar</button>
+        </article>
+        `
+    }
+     let botonesEliminar = document.querySelectorAll('.btnEliminar')
 
-  let botonesEliminar = document.querySelectorAll(".btnEliminar");
-  for (let boton of botonesEliminar) {
-    boton.addEventListener("click", eliminarMensaje);
-  }
+    for (let boton of botonesEliminar) {
+        boton.addEventListener('click', eliminarMensaje)
+    }
 
-  //actualizo el contador de mensajes aqui porque es la funcion que recoje el bucle
-  if (mensajes.length === 1) {
-    contadorMensajes.textContent = "1 mensaje";
-  } else {
-    contadorMensajes.textContent = mensajes.length + "mensajes";
-  }
+    //actualizo el contador de mensajes aqui porque es la funcion que recoje el bucle
+    if (mensajes.length === 1) {
+        contadorMensajes.textContent = '1 mensaje'
+    } else {
+        contadorMensajes.textContent = mensajes.length + ' mensajes'
+    }
+
 }
 
 
@@ -133,35 +141,47 @@ function añadirMensaje() {
   }
 
   mostrarMensajes();
+  mostrarNotificaciones('Mensaje añadido')
 }
 
 
 //necesito pasarle una accion    "evento"
-function comprobarTecla(evento) {
-  if (evento.key === "Enter") {
-    añadirMensaje();
-  }
+function comprobarTecla(e) {
+    if (e.key === "Enter") {
+        añadirMensaje()
+    }
 }
 
 
-//necesito pasarle una accion    "evento"
-function eliminarMensaje(evento) {
-  let indice = evento.target.dataset.indice;
+//necesito pasarle una accion   e "evento"
+function eliminarMensaje(e) {
+    let indice = e.target.dataset.indice
 
-  let confirmar = confirm('Estas seguro de eliminar este mensaje?')
-
-  if(confirmar === true)
-  mensajes.splice(indice, 1);
-  mostrarMensajes();
+    let confirmar = confirm('¿Estas seguro?')
+    if (confirmar === true) {
+        mensajes.splice(indice, 1)
+        mostrarMensajes()
+    }
+    mostrarNotificaciones('Mensaje eliminado')
 }
 
 
-function mostrarNoticicaciones(texto){
-  notificacion.textContent = texto
+function mostrarNotificaciones(texto){
+    notificacion.textContent = texto
+
+    notificacion.classList.add('visible')
+
+    setTimeout(ocultarNotificacion, 2000)
 }
+
+
+function ocultarNotificacion(){
+    notificacion.classList.remove('visible')
+}
+
 
 //---------------    Llamadas      -----------------------------------------
 
-actualizarTamaño();
-actualizarConexion();
-mostrarMensajes();
+actualizarTamaño()
+actualizarConexion()
+mostrarMensajes()
