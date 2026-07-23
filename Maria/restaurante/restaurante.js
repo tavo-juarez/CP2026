@@ -80,6 +80,9 @@ const menu = [
 let btnVampiro = document.getElementById("btnVampiro");
 let btnAngel = document.getElementById("btnAngel");
 
+let tituloVampi = document.querySelector(".tituloVampi");
+let tituloAngel = document.querySelector(".tituloAngel");
+
 let bebidasVampiros = document.querySelector(".bebidasVampiros");
 let bebidasAngeles = document.querySelector(".bebidasAngeles");
 
@@ -100,28 +103,53 @@ let bebidasAngeles = document.querySelector(".bebidasAngeles");
 // AI corregida
 btnVampiro.addEventListener("click", () => {
   mostrarMenu("vampiro");
+  btnVampiro.disabled = true;
+  btnAngel.disabled = false;
 });
 
 btnAngel.addEventListener("click", () => {
   mostrarMenu("angel");
+  btnAngel.disabled = true;
+  btnVampiro.disabled = false;
 });
 
 // Filtrar menu
 function mostrarMenu(cliente) {
+  //Limpio/vacio los titulos H1
+  tituloVampi.innerHTML = "";
+  tituloAngel.innerHTML = "";
+
+  //vuelvo a vaciar el contenedor de las bebidas
+  bebidasVampiros.innerHTML = "";
+  bebidasAngeles.innerHTML = "";
+
   for (let i = 0; i < menu.length; i++) {
     if (menu[i].cliente === cliente) {
-      // console.log(menu[i].nombre);
+      // console.log(menu[i].nombre)
 
-      bebidasVampiros.innerHTML += 
-      `<div class="bebida" id="bebida">
+      if (cliente === "vampiro") {
 
+        tituloVampi.innerHTML = `<span class='vampi'>Menu Vampiros</span>`;
+
+        bebidasVampiros.innerHTML += `<div class="bebida" id="bebida">
           <H2 class='titulo'>${menu[i].nombre}</H2>
           <p>Precio: ${menu[i].precio} €</p>
           <p>Rareza: ${menu[i].rareza}</p>
           <p>Puede ser tipo: ${menu[i].tipo[0]} o ${menu[i].tipo[1]}</p>
-          
+          <button class='btnAñadir' id='Añadir'>Añadir</button>
         </div>`;
+      } else {
+
+        tituloAngel.innerHTML = `<span class='ang'>Menu Angeles</span>`;
+
+        bebidasAngeles.innerHTML += `<div class="bebida" id="bebida">
+          <H2 class='titulo'>${menu[i].nombre}</H2>
+          <p>Precio: ${menu[i].precio} €</p>
+          <p>Rareza: ${menu[i].rareza}</p>
+          <p>Puede ser tipo: ${menu[i].tipo[0]} o ${menu[i].tipo[1]}</p>
+    
+        </div>`;
+      }
     }
   }
 }
-mostrarMenu();

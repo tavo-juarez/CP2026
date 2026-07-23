@@ -31,7 +31,7 @@ body {
   justify-content: center;
   align-items: center;
   width: 100%;
-  padding: 0 0;
+  padding: 0;
   font-size: 1.5em;
   font-weight: bolder;
   color: #000;
@@ -58,7 +58,6 @@ body {
 .vampiro:hover {
   background-color: #5b0f0f;
   border-color: #8b0000;
-  /* box-shadow: 0 0 15px rgba(139, 0, 0, 0.7); */
   transform: translateY(-2px);
 }
 
@@ -66,35 +65,150 @@ body {
   background-color: #f8f8f8;
   color: #202020;
   border-color: #f3d36b;
-  /* box-shadow: 0 0 15px rgba(255, 230, 140, 0.8); */
   transform: translateY(-2px);
 }
 
-/*---------------- IMG -------------------- */
+/*---------------- Layout -------------------- */
 
 .creatures {
   display: flex;
   width: 100%;
   min-height: 100dvh;
+}
 
-  .vampiros {
-    width: 50%;
-    background-size: cover;
-    background-position: center;
-    background-image: url("../img/vampireSmall.jpg");
+/*---------------- Zona Vampiros -------------------- */
 
-    h2, p, label {
-      color: #F2EEED;
-    }
-  }
+.vampiros {
+  width: 50%;
+  background-image: url("../img/vampireSmall.jpg");
+  background-size: cover;
+  background-position: center;
+}
 
-  .angels {
-    background-image: url("../img/angel.jpg");
-    width: 50%;
-    background-size: cover;
-    background-position: center;
-    h2 {
-      color: #F00000;
-    }
-  }
+.vampiros h2,
+.vampiros p,
+.vampiros label {
+  color: #F2EEED;
+}
+
+/*---------------- Zona Ángeles -------------------- */
+
+.angels {
+  width: 50%;
+  background-image: url("../img/angel.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.angels h2 {
+  color: #F00000;
+}
+
+/*====================================================
+            CONTENEDORES DE LAS BEBIDAS
+======================================================*/
+
+.bebidasVampiros,
+.bebidasAngeles {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  justify-content: flex-start;
+
+  align-items: stretch;
+
+  gap: 1.5rem;
+
+  padding: 2rem;
+
+  width: 100%;
+}
+
+/*====================================================
+                TARJETAS
+======================================================*/
+
+.bebida {
+
+  flex: 1 1 12em;
+
+  max-width: 18em;
+
+  padding: 1.5rem;
+
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, .12);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, .20);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, .25);
+
+  color: white;
+
+  transition:
+    transform .3s ease,
+    background .3s ease,
+    box-shadow .3s ease;
+
+}
+
+/*---------------- Hover tarjetas --------------------*/
+
+.bebida:hover {
+
+  transform: translateY(-6px);
+
+  background: rgba(255, 255, 255, .18);
+
+  box-shadow: 0 15px 35px rgba(0, 0, 0, .35);
+
+}
+
+/*---------------- Texto tarjetas --------------------*/
+
+.bebida h2 {
+
+  margin-bottom: 1rem;
+
+  font-size: 1.35rem;
+
+  font-weight: bold;
+
+}
+
+.bebida p {
+
+  margin: .45rem 0;
+
+  line-height: 1.5;
+
+}
+
+/*---------------- Diferencias entre menús --------------------*/
+
+.bebidasVampiros .bebida h2 {
+
+  color: #D4AF37;
+
+}
+
+.bebidasAngeles .bebida h2 {
+
+  color: #F00000;
+
+}
+
+.vampi{
+  color: #FFFCFC;
+  font-size: 2.5em;
+}
+
+span .and{
+  color: #3B2339;
 }
