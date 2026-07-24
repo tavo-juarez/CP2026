@@ -79,7 +79,7 @@ body {
 /*---------------- Zona Vampiros -------------------- */
 
 .vampiros {
-  width: 50%;
+  flex: 1;
   background-image: url("../img/vampireSmall.jpg");
   background-size: cover;
   background-position: center;
@@ -94,7 +94,7 @@ body {
 /*---------------- Zona Ángeles -------------------- */
 
 .angels {
-  width: 50%;
+  flex: 1;
   background-image: url("../img/angel.jpg");
   background-size: cover;
   background-position: center;
@@ -102,6 +102,11 @@ body {
 
 .angels h2 {
   color: #F00000;
+}
+
+/* esta clase me ayudara a hacer que uno de los div desaparezca */
+.inactivo{
+    display:none;
 }
 
 /*====================================================
@@ -209,6 +214,7 @@ body {
   font-size: 2.5em;
 }
 
-span .and{
-  color: #3B2339;
+.ang{
+  color: #F00000;
+  font-size: 2.5em;
 }

@@ -77,6 +77,9 @@ const menu = [
   },
 ];
 
+let angels = document.getElementById("angels");
+let vampiros = document.getElementById("vampiros");
+
 let btnVampiro = document.getElementById("btnVampiro");
 let btnAngel = document.getElementById("btnAngel");
 
@@ -86,32 +89,69 @@ let tituloAngel = document.querySelector(".tituloAngel");
 let bebidasVampiros = document.querySelector(".bebidasVampiros");
 let bebidasAngeles = document.querySelector(".bebidasAngeles");
 
+const reset = document.getElementById('reset')
+
 //-------------------------------------Funciones---------------------------
 
 // Filtrar creatura
 
-//Mi funcion:
-
-// btnVampiro.addEventListener("click", () => {
-//   let creature = "vampiro";
-// });
-
-// btnAngel.addEventListener("click", () => {
-//   let creature = "angel";
-// });
-
 // AI corregida
 btnVampiro.addEventListener("click", () => {
+  
+  // 1. Cambio el aspecto de la página
+  angels.classList.add("inactivo");
+  vampiros.classList.remove("inactivo");
+
+  // 2. Muestro el menú correspondiente
   mostrarMenu("vampiro");
+
+  // 3. Actualizo el estado de los botones
   btnVampiro.disabled = true;
   btnAngel.disabled = false;
 });
 
 btnAngel.addEventListener("click", () => {
+  // 1. Cambio el aspecto de la página
+  vampiros.classList.add("inactivo");
+  angels.classList.remove("inactivo");
+
+  // 2. Muestro el menú correspondiente
   mostrarMenu("angel");
+
+  // 3. Actualizo el estado de los botones
   btnAngel.disabled = true;
   btnVampiro.disabled = false;
 });
+
+//Reset from title
+
+reset.addEventListener("click", maria)
+
+// function volverAlInicio() {
+
+//     // Mostrar otra vez los dos paneles
+//     vampiros.classList.remove("inactivo");
+//     angels.classList.remove("inactivo");
+
+//     // Vaciar títulos
+//     tituloVampi.innerHTML = "";
+//     tituloAngel.innerHTML = "";
+
+//     // Vaciar tarjetas
+//     bebidasVampiros.innerHTML = "";
+//     bebidasAngeles.innerHTML = "";
+
+//     // Activar los dos botones
+//     btnVampiro.disabled = false;
+//     btnAngel.disabled = false;
+
+// }
+
+function maria(){
+  window.location.reload()
+}
+
+
 
 // Filtrar menu
 function mostrarMenu(cliente) {
@@ -128,7 +168,6 @@ function mostrarMenu(cliente) {
       // console.log(menu[i].nombre)
 
       if (cliente === "vampiro") {
-
         tituloVampi.innerHTML = `<span class='vampi'>Menu Vampiros</span>`;
 
         bebidasVampiros.innerHTML += `<div class="bebida" id="bebida">
@@ -139,7 +178,6 @@ function mostrarMenu(cliente) {
           <button class='btnAñadir' id='Añadir'>Añadir</button>
         </div>`;
       } else {
-
         tituloAngel.innerHTML = `<span class='ang'>Menu Angeles</span>`;
 
         bebidasAngeles.innerHTML += `<div class="bebida" id="bebida">
