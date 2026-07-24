@@ -16,7 +16,7 @@ const campoNombre = document.getElementById("nombre");
 const mensajeNombre = document.getElementById("mensajeNombre");
 const selectorTurno = document.getElementById("turno");
 const comentario = document.getElementById("comentario");
-const contadorCaracteres = document.getElementById("contadorCaracteres");
+let contadorCaracteres = document.getElementById("contadorCaracteres");
 const resultadoFormulario = document.getElementById("resultadoFormulario");
 
 // Listeners
@@ -43,19 +43,21 @@ btnReserva.addEventListener("click", () => {
   // Aqui paso el valor de reservado al valor contrario del anterior
   reservado = !reservado;
 
+  //"Comprueba si reservado es true."
   if (reservado) {
-    //"Comprueba si reservado es true."
-    plazasDisponibles--;
+    
+    // plazasDisponibles--;  Pasamos esta instruccion al submit. Dejamos el boton 
+    // como una reserva en proceso
     btnReserva.textContent = "Reservado";
-    mensajeReserva.textContent = "Reserva hecha";
+    mensajeReserva.textContent = "Reserva iniciada";
     mensajeReserva.classList.add("reservada");
   } else {
-    plazasDisponibles++;
+    // plazasDisponibles++; Pasamos la instruccion al submit
     btnReserva.textContent = "Disponible";
     mensajeReserva.textContent = "Reserva cancelada";
     mensajeReserva.classList.remove("reservada");
   }
-  numeroPlazas.textContent = plazasDisponibles;
+  // numeroPlazas.textContent = plazasDisponibles; Esto ya no se va a actualizar aqui
 });
 
 // campos formulario
@@ -128,6 +130,10 @@ formularioReserva.addEventListener('submit', (e)=>{
         resultadoFormulario.classList.remove('correcto')
         return
     }
+    plazasDisponibles -- // añadido a posteriori para modificar el funcionamiento
+    numeroPlazas.textContent = plazasDisponibles // añadido posteriori
+    resultadoFormulario.textContent = 
+
 
     resultadoFormulario.textContent = `Reserva confirmada para ${nombre} 
     en el turno de ${turno}`
@@ -153,6 +159,11 @@ formularioReserva.addEventListener('submit', (e)=>{
     formularioReserva.reset()
     contadorCaracteres = '0'
     mensajeNombre.textContent = ''
+
+    //Añadido a posteriori
+    reservado = false
+    btnReserva.textContent = 'Disponible'
+    acticidad.classList.remove('reservada')
 })
 
 
@@ -164,3 +175,21 @@ document.addEventListener('keydown', (e)=>{
         resultadoFormulario.textContent = ''
     }
 } )
+
+
+//Delagacion de eventos
+listaParticipantes.addEventListener('click', (e)=>{
+  // console.log(e.target)
+  if(e.target.classList.contains('btnEliminar')){
+    console.log('has pulsado eliminar')
+
+    // el elemento padre en este caso es el div listaParticipantes 
+    e.target.parentElement.remove()
+    plazasDisponibles++
+    numeroPlazas.textContent = plazasDisponibles
+  }
+  const participantes = listaParticipantes.querySelectorAll('.participante')
+  if(participantes.length === 0){
+    listaParticipantes.innerHTML = `<p class='aviso  '>Todavia no hay participantes</p>`
+  }
+})
