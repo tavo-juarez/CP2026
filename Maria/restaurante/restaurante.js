@@ -91,6 +91,8 @@ let bebidasAngeles = document.querySelector(".bebidasAngeles");
 
 const reset = document.getElementById('reset')
 
+let pedido = [];
+
 //-------------------------------------Funciones---------------------------
 
 // Filtrar creatura
@@ -177,7 +179,7 @@ function mostrarMenu(cliente) {
           <p>Precio: ${menu[i].precio} €</p>
           <p>Rareza: ${menu[i].rareza}</p>
           <p>Puede ser tipo: ${menu[i].tipo[0]}, ${menu[i].tipo[1]}, ${menu[i].tipo[2]}</p>
-          <button class='btnAñadir' id='Añadir'>Añadir</button>
+          <button class='btnAñadir' data-id='${menu[i].id}'>Añadir</button>
 
         </div>`;
       } else {
@@ -188,7 +190,8 @@ function mostrarMenu(cliente) {
           <p>Precio: ${menu[i].precio} €</p>
           <p>Rareza: ${menu[i].rareza}</p>
           <p>Puede ser tipo: ${menu[i].tipo[0]} o ${menu[i].tipo[1]}</p>
-    
+        <button class='btnAñadir' data-id='${menu[i].id}'>Añadir</button>
+
         </div>`;
       }
     }
@@ -197,15 +200,33 @@ function mostrarMenu(cliente) {
 
 // Gestionamos pedidos
 
-function buscarBebidaPorId(idBebida) {
-  for (let i = 0; i < menu.id; i++) {
-    if (menu[i].id === idBebida) {
-      return bares[i];
-    }
+// bebidasVampiros.addEventListener("click", (e) => {
+//   // Verificamos si lo que se presionado fue el botón de Añadir
+//   if (e.target.classList.contains("btnAñadir")) {
+//     const idBebida = e.target.dataset.id;
+//     console.log("ID capturado:", idBebida);
+//   }
+// });
+
+
+// 1. Escuchamos el evento "click" en el contenedor padre de las bebidas de vampiro
+bebidasVampiros.addEventListener("click", (e) => {
+
+  // 2. e.target representa el elemento exacto donde se hizo clic.
+  // .classList.contains("btnAñadir") verifica si el elemento clickeado tiene la clase "btnAñadir".
+  if (e.target.classList.contains("btnAñadir")) {
+
+    // 3. e.target.dataset.id accede al atributo 'data-id' del botón clickeado.
+    // Guarda el ID de la bebida como texto (string).
+    const idBebida = e.target.dataset.id;
+
+    // 4. menu.find() recorre el arreglo 'menu' buscando la bebida correspondiente.
+    // Number(idBebida) convierte el texto ("1") a número (1) para comparar con bebida.id.
+    const bebidaSeleccionada = menu.find(bebida => bebida.id === Number(idBebida));
+   
+
+    // 5. Mostramos en la consola del navegador la información completa de la bebida encontrada.
+    console.log("Bebida encontrada:", bebidaSeleccionada);
   }
-  return null;
-}
 
-function mostrarPedido(){
-
-}
+});
