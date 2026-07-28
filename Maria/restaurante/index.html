@@ -17,27 +17,60 @@
     </nav>
 
     <section class="creatures">
-
       <div class="vampiros" id="vampiros">
-        
         <div class="tituloVampi" id="tituloVampi"></div>
 
         <div class="bebidasVampiros" id="bebidasVampiros"></div>
 
         <div class="pedidoVampiros" id="pedidoVampiros"></div>
-
       </div>
 
 
       <div class="angels" id="angels">
-
         <div class="tituloAngel" id="tituloAngel"></div>
 
         <div class="bebidasAngeles" id="bebidasAngeles"></div>
 
         <div class="pedidoAngels" id="pedidoAngels"></div>
-
       </div>
+    </section>
+
+    <div class="pedido">
+
+      <div class="resumenPedido" id="resumenPedido"></div>
+
+      <div class="total" id="total"></div>
+
+    </div>
+
+    <section class="ocultar">
+      <h2>Datos del pedido</h2>
+      <form id="formularioPedido">
+        <div>
+          <label for="nombre">Nombre</label>
+          <input type="text" id="nombre" placeholder="Tu nombre">
+          <small id="mensajeNombre"></small>
+        </div>
+
+        <div>
+          <label for="modalidad">Modalidad</label>
+          <select name="" id="modalidad">
+          <option value="">Donde te lo bebes?</option>
+          <option value="llevar">Para llevar</option>
+          <option value="local">Tomar aqui</option> 
+          </select>
+        </div>
+
+        <div>
+          <label for="comentario"></label>
+          <textarea id="comentario" maxlength="100" placeholder="Comentarios aqui"></textarea>
+          <small id="contadorCaracteres">0</small>
+        </div>
+
+        <button type="submit">Confirmar datos</button>
+      </form>
+
+      <p id="resultadoFormulario"></p>
     </section>
   </main>
 

@@ -1,7 +1,7 @@
 const menu = [
   //----------------Bebidas Vampiros-----------
   {
-    // id: 1,
+    id: 1,
     cliente: "vampiro",
     precio: 15,
     tipo: ["AB-", "B-", "AB+"],
@@ -10,7 +10,7 @@ const menu = [
     nombre: "Sangre Dorada",
   },
   {
-    // id: 2,
+    id: 2,
     cliente: "vampiro",
     precio: 10,
     tipo: ["A-", "O-", "B+"],
@@ -19,7 +19,7 @@ const menu = [
     nombre: "Sangre Plateada",
   },
   {
-    // id: 3,
+    id: 3,
     cliente: "vampiro",
     precio: 7.5,
     tipo: ["A+", "O+"],
@@ -28,7 +28,7 @@ const menu = [
     nombre: "Sangre Simple",
   },
   {
-    // id: 4,
+    id: 4,
     cliente: "vampiro",
     precio: 35,
     tipo: ["Rh"],
@@ -40,7 +40,7 @@ const menu = [
   //----------------Bebidas Angeles-----------
 
   {
-    // id: 5,
+    id: 5,
     cliente: "angel",
     precio: 10,
     tipo: ["Alegre", "Empaticx", "Divertidx"],
@@ -49,7 +49,7 @@ const menu = [
     nombre: "Alma Dorada",
   },
   {
-    // id: 6,
+    id: 6,
     cliente: "angel",
     precio: 10,
     tipo: ["Neutral", "Sencillx", "Amigable"],
@@ -58,7 +58,7 @@ const menu = [
     nombre: "Alma Plateada",
   },
   {
-    // id: 7,
+    id: 7,
     cliente: "angel",
     precio: 10,
     tipo: ["Pretenciosx", "Simple", "Egoista"],
@@ -67,7 +67,7 @@ const menu = [
     nombre: "Alma de facha",
   },
   {
-    // id: 8,
+    id: 8,
     cliente: "angel",
     precio: 10,
     tipo: ["Alegre", "Empaticx", "Divertidx", "Resilient", "Criticx"],
@@ -170,12 +170,15 @@ function mostrarMenu(cliente) {
       if (cliente === "vampiro") {
         tituloVampi.innerHTML = `<span class='vampi'>Menu Vampiros</span>`;
 
-        bebidasVampiros.innerHTML += `<div class="bebida" id="bebida">
+        bebidasVampiros.innerHTML += 
+        `<div class="bebida" id="bebida">
+
           <H2 class='titulo'>${menu[i].nombre}</H2>
           <p>Precio: ${menu[i].precio} €</p>
           <p>Rareza: ${menu[i].rareza}</p>
-          <p>Puede ser tipo: ${menu[i].tipo[0]} o ${menu[i].tipo[1]}</p>
+          <p>Puede ser tipo: ${menu[i].tipo[0]}, ${menu[i].tipo[1]}, ${menu[i].tipo[2]}</p>
           <button class='btnAñadir' id='Añadir'>Añadir</button>
+
         </div>`;
       } else {
         tituloAngel.innerHTML = `<span class='ang'>Menu Angeles</span>`;
@@ -190,4 +193,19 @@ function mostrarMenu(cliente) {
       }
     }
   }
+}
+
+// Gestionamos pedidos
+
+function buscarBebidaPorId(idBebida) {
+  for (let i = 0; i < menu.id; i++) {
+    if (menu[i].id === idBebida) {
+      return bares[i];
+    }
+  }
+  return null;
+}
+
+function mostrarPedido(){
+
 }

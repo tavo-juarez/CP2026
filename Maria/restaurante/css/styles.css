@@ -163,6 +163,12 @@ body {
 
 }
 
+.ocultar{
+  display: none;
+}
+
+
+
 /*---------------- Hover tarjetas --------------------*/
 
 .bebida:hover {
@@ -217,4 +223,162 @@ body {
 .ang{
   color: #F00000;
   font-size: 2.5em;
+}
+
+
+/*====================================================
+                    FORMULARIO
+======================================================*/
+
+#formularioPedido{
+
+  width: min(100%, 38rem);
+
+  margin: 2rem auto;
+
+  padding: 2rem;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 1.5rem;
+
+  border-radius: 18px;
+
+  background: rgba(255,255,255,.12);
+
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255,255,255,.20);
+
+  box-shadow: 0 8px 20px rgba(0,0,0,.25);
+}
+
+#formularioPedido div{
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: .5rem;
+}
+
+#formularioPedido input,
+#formularioPedido select,
+#formularioPedido textarea{
+
+  width: 100%;
+
+  padding: .9rem 1rem;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,.20);
+
+  background: rgba(255,255,255,.08);
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-family: inherit;
+
+  outline: none;
+
+  transition: .3s ease;
+}
+
+#formularioPedido input::placeholder,
+#formularioPedido textarea::placeholder{
+
+  color: rgba(255,255,255,.65);
+}
+
+#formularioPedido textarea{
+
+  resize: vertical;
+
+  min-height: 8rem;
+}
+
+#formularioPedido select{
+
+  color: rgba(255,255,255,.9);
+}
+
+#formularioPedido option{
+
+  color: #222;
+}
+
+#formularioPedido input:focus,
+#formularioPedido select:focus,
+#formularioPedido textarea:focus{
+
+  background: rgba(255,255,255,.15);
+
+  border-color: rgba(255,255,255,.35);
+
+  box-shadow: 0 0 15px rgba(255,255,255,.15);
+}
+
+#formularioPedido button{
+
+  padding: 1rem;
+
+  border-radius: 12px;
+
+  border: 1px solid rgba(255,255,255,.20);
+
+  background: rgba(255,255,255,.12);
+
+  color: white;
+
+  font-size: 1rem;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: .3s ease;
+
+  backdrop-filter: blur(10px);
+}
+
+#formularioPedido button:hover{
+
+  transform: translateY(-4px);
+
+  background: rgba(255,255,255,.18);
+
+  box-shadow: 0 15px 35px rgba(0,0,0,.35);
+}
+
+#formularioPedido small{
+
+  color: #D4AF37;
+
+  font-size: .85rem;
+
+  min-height: 1rem;
+}
+
+#contadorCaracteres{
+
+  align-self: flex-end;
+
+  color: rgba(255,255,255,.75);
+}
+
+#resultadoFormulario{
+
+  margin-top: 1.5rem;
+
+  text-align: center;
+
+  color: white;
+
+  font-weight: 500;
 }
