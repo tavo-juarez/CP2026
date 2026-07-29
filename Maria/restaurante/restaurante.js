@@ -89,7 +89,11 @@ let tituloAngel = document.querySelector(".tituloAngel");
 let bebidasVampiros = document.querySelector(".bebidasVampiros");
 let bebidasAngeles = document.querySelector(".bebidasAngeles");
 
-const reset = document.getElementById('reset')
+let pedidoVampiros = document.getElementById("pedidoVampiros");
+let pedidoAngels = document.getElementById("pedidoAngels");
+
+const reset = document.getElementById("reset");
+
 
 let pedido = [];
 
@@ -99,7 +103,6 @@ let pedido = [];
 
 // AI corregida
 btnVampiro.addEventListener("click", () => {
-  
   // 1. Cambio el aspecto de la página
   angels.classList.add("inactivo");
   vampiros.classList.remove("inactivo");
@@ -127,7 +130,7 @@ btnAngel.addEventListener("click", () => {
 
 //Reset from title
 
-reset.addEventListener("click", maria)
+reset.addEventListener("click", maria);
 
 // function volverAlInicio() {
 
@@ -149,11 +152,9 @@ reset.addEventListener("click", maria)
 
 // }
 
-function maria(){
-  window.location.reload()
+function maria() {
+  window.location.reload();
 }
-
-
 
 // Filtrar menu
 function mostrarMenu(cliente) {
@@ -172,8 +173,7 @@ function mostrarMenu(cliente) {
       if (cliente === "vampiro") {
         tituloVampi.innerHTML = `<span class='vampi'>Menu Vampiros</span>`;
 
-        bebidasVampiros.innerHTML += 
-        `<div class="bebida" id="bebida">
+        bebidasVampiros.innerHTML += `<div class="bebida" id="bebida">
 
           <H2 class='titulo'>${menu[i].nombre}</H2>
           <p>Precio: ${menu[i].precio} €</p>
@@ -208,7 +208,6 @@ function mostrarMenu(cliente) {
 //   }
 // });
 
-
 // 1. Escuchamos el evento "click" en el contenedor padre de las bebidas de vampiro
 bebidasVampiros.addEventListener("click", (e) => {
 
@@ -222,11 +221,56 @@ bebidasVampiros.addEventListener("click", (e) => {
 
     // 4. menu.find() recorre el arreglo 'menu' buscando la bebida correspondiente.
     // Number(idBebida) convierte el texto ("1") a número (1) para comparar con bebida.id.
-    const bebidaSeleccionada = menu.find(bebida => bebida.id === Number(idBebida));
-   
+    const bebidaSeleccionada = menu.find((bebida) => bebida.id === Number(idBebida));
 
-    // 5. Mostramos en la consola del navegador la información completa de la bebida encontrada.
-    console.log("Bebida encontrada:", bebidaSeleccionada);
+    // Guardamos la bebida seleccionada en nuestro array del pedido
+    pedido.push(bebidaSeleccionada);
+
+    // 3. Ejecutamos la función para actualizar el HTML
+    pintarResumenPedido();
   }
 
 });
+
+// Función para pintar el pedido dinámicamente
+function pintarResumenPedido(cliente) {
+
+  // 1. Seleccionamos la caja destino.
+  // Si cliente es "vampiro", usa 'pedidoVampiros'.
+  // Si no, usa 'pedidoAngels'.
+  const contenedorDestino = (cliente === "vampiro") 
+    ? pedidoVampiros 
+    : pedidoAngels;
+
+  // 2. Limpiamos el HTML de la caja
+  // para evitar duplicar el contenido.
+  contenedorDestino.innerHTML = "";
+
+  // 3. Si el array 'pedido' está vacío,
+  // detiene la función aquí con 'return'.
+  if (pedido.length === 0) return;
+
+  // 4. Variable acumuladora para el total (€).
+  let precioTotal = 0;
+
+  // 5. Insertamos el título del resumen.
+  contenedorDestino.innerHTML = `<h3>Resumen del Pedido</h3>`;
+
+  // 6. Recorremos el array 'pedido' elemento a elemento.
+  for (let i = 0; i < pedido.length; i++) {
+
+    // Sumamos el precio del producto al total acumulado.
+    precioTotal += pedido[i].precio;
+
+    // Concatenamos (+=) la línea de la bebida actual.
+    contenedorDestino.innerHTML += `
+      <p><strong>${pedido[i].nombre}</strong> - ${pedido[i].precio} €</p>
+    `;
+  }
+
+  // 7. Insertamos la línea divisoria y la suma total.
+  contenedorDestino.innerHTML += `
+    <hr>
+    <p><strong>Total: ${precioTotal} €</strong></p>
+  `;
+}

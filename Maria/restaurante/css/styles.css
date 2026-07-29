@@ -382,3 +382,33 @@ body {
 
   font-weight: 500;
 }
+
+/* ====================================================
+                RESUMEN DEL PEDIDO
+====================================================== */
+
+.pedido {
+  /* Ancho y centrado automático */
+  width: min(90%, 38rem);
+  margin: 2rem auto;
+  padding: 1.5rem;
+
+  /* Estilo Glassmorphism acorde a tus tarjetas */
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.20);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+  
+  /* Color de texto claro para ver sobre el fondo */
+  color: #ffffff;
+  text-align: center;
+}
+
+#resumenPedido p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.3rem;
+}
