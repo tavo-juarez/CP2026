@@ -98,10 +98,18 @@ const reset = document.getElementById("reset");
 let pedido = [];
 
 //Para poder saber cantidad pedida por bebida
+
+//Vampiros
 const contadorSangreDorada = 0
 const contadorSangrePlateada = 0
 const contadorSangreSimple = 0
 const contadorSangreCristal = 0
+
+//Angeles
+const contadorAlmaPlateada = 0
+const contadorAlmaHumana = 0
+const contadorAlmaFacha = 0
+const contadorAlmaDorada = 0
 
 //-------------------------------------Funciones---------------------------
 
