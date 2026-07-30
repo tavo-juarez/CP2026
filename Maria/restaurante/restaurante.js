@@ -100,16 +100,16 @@ let pedido = [];
 //Para poder saber cantidad pedida por bebida
 
 //Vampiros
-const contadorSangreDorada = 0
-const contadorSangrePlateada = 0
-const contadorSangreSimple = 0
-const contadorSangreCristal = 0
+let contadorSangreDorada = 0
+let contadorSangrePlateada = 0
+let contadorSangreSimple = 0
+let contadorSangreCristal = 0
 
 //Angeles
-const contadorAlmaPlateada = 0
-const contadorAlmaHumana = 0
-const contadorAlmaFacha = 0
-const contadorAlmaDorada = 0
+let contadorAlmaPlateada = 0
+let contadorAlmaHumana = 0
+let contadorAlmaFacha = 0
+let contadorAlmaDorada = 0
 
 //-------------------------------------Funciones---------------------------
 
@@ -211,37 +211,70 @@ bebidasVampiros.addEventListener("click", (e) => {
     // Number(idBebida) convierte el texto ("1") a número (1) para comparar con bebida.id.
     const bebidaSeleccionada = menu.find((bebida) => bebida.id === Number(idBebida));
 
-    // Guardamos la bebida seleccionada en nuestro array del pedido
-    pedido.push(bebidaSeleccionada);
+    // 5. NUEVO: Buscamos si esta bebida YA se encuentra dentro de nuestro arreglo 'pedido'
+    const existeEnPedido = pedido.find((item) => item.id === Number(idBebida));
 
-    // 3. Ejecutamos la función para actualizar el HTML
+   // 6. NUEVO: Evaluamos si el resultado de la búsqueda devolvió una bebida existente
+    if (existeEnPedido) {
+
+      // 7. Si la bebida ya estaba en el pedido, le sumamos 1 a su propiedad 'cantidad'
+      existeEnPedido.cantidad++;
+
+    } else {
+
+      // 8. Si es la primera vez que se añade, creamos una copia del objeto con 'cantidad: 1'
+      const nuevaBebida = { ...bebidaSeleccionada, cantidad: 1 };
+
+      // 9. Agregamos el nuevo objeto con su cantidad al arreglo global 'pedido'
+      pedido.push(nuevaBebida);
+
+    } // Fin del condicional de existencia
+
+    // 10. Volvemos a pintar el ticket en pantalla con la información actualizada
     pintarResumenPedido("vampiro");
-  }
+
+  } // Fin de la comprobación del botón
 
 });
+
 
 // 1. Escuchamos el evento "click" en el contenedor padre de las bebidas de Angeles
 bebidasAngeles.addEventListener("click", (e) => {
 
-  // Comprobamos si el clic fue en un botón añadir
+  // 2. Verificamos si el clic fue en un botón de añadir
   if (e.target.classList.contains("btnAñadir")) {
 
-    // Guardamos el ID que tiene el botón en el HTML
+    // 3. Extraemos el ID guardado en el atributo data-id del botón
     const idBebida = e.target.dataset.id;
 
-    // Buscamos el objeto de la bebida en el array 'menu'
-    const bebidaSeleccionada = menu.find(
-      (bebida) => bebida.id === Number(idBebida)
-    );
+    // 4. Buscamos en el arreglo 'menu' los datos de la bebida pulsada
+    const bebidaSeleccionada = menu.find((bebida) => bebida.id === Number(idBebida));
 
-    // Añadimos la bebida al array global 'pedido'
-    pedido.push(bebidaSeleccionada);
+    // 5. Buscamos si esta bebida YA se encuentra dentro de nuestro arreglo 'pedido'
+    const existeEnPedido = pedido.find((item) => item.id === Number(idBebida));
 
-    // ¡AQUÍ!: Le enviamos "angel" a la función
+    // 6. Evaluamos si la bebida ya existía en el pedido
+    if (existeEnPedido) {
+
+      // 7. Si ya existía, le sumamos 1 a su propiedad 'cantidad'
+      existeEnPedido.cantidad++;
+
+    } else {
+
+      // 8. Si es la primera vez que se añade, creamos la copia del objeto con 'cantidad: 1'
+      const nuevaBebida = { ...bebidaSeleccionada, cantidad: 1 };
+
+      // 9. Agregamos el nuevo objeto al arreglo global 'pedido'
+      pedido.push(nuevaBebida);
+
+    } // Fin del condicional de existencia
+
+    // 10. Volvemos a pintar el ticket de Ángeles con la información actualizada
     pintarResumenPedido("angel");
-  }
-});
 
+  } // Fin de la comprobación del botón
+
+});
 
 
 // Declaramos la función y le creamos un hueco llamado 'cliente'
@@ -274,8 +307,9 @@ function pintarResumenPedido(cliente) {
       //    en un párrafo <p> dentro de la caja de destino
       contenedorDestino.innerHTML += `
         <div class="linea-pedido">
+          <span>${pedido[i].cantidad} X</span>
           <span>${pedido[i].nombre}</span>
-          <span>${pedido[i].precio} €</span>
+          <span>Precio unidad ${pedido[i].precio} €</span>
         </div>
       `;
 
