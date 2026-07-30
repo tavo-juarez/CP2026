@@ -97,11 +97,15 @@ const reset = document.getElementById("reset");
 
 let pedido = [];
 
+//Para poder saber cantidad pedida por bebida
+const contadorSangreDorada = 0
+const contadorSangrePlateada = 0
+const contadorSangreSimple = 0
+const contadorSangreCristal = 0
+
 //-------------------------------------Funciones---------------------------
 
 // Filtrar creatura
-
-// AI corregida
 btnVampiro.addEventListener("click", () => {
   // 1. Cambio el aspecto de la página
   angels.classList.add("inactivo");
@@ -114,6 +118,7 @@ btnVampiro.addEventListener("click", () => {
   btnVampiro.disabled = true;
   btnAngel.disabled = false;
 });
+
 
 btnAngel.addEventListener("click", () => {
   // 1. Cambio el aspecto de la página
@@ -128,33 +133,14 @@ btnAngel.addEventListener("click", () => {
   btnVampiro.disabled = false;
 });
 
+
 //Reset from title
+reset.addEventListener("click", limpiar);
 
-reset.addEventListener("click", maria);
-
-// function volverAlInicio() {
-
-//     // Mostrar otra vez los dos paneles
-//     vampiros.classList.remove("inactivo");
-//     angels.classList.remove("inactivo");
-
-//     // Vaciar títulos
-//     tituloVampi.innerHTML = "";
-//     tituloAngel.innerHTML = "";
-
-//     // Vaciar tarjetas
-//     bebidasVampiros.innerHTML = "";
-//     bebidasAngeles.innerHTML = "";
-
-//     // Activar los dos botones
-//     btnVampiro.disabled = false;
-//     btnAngel.disabled = false;
-
-// }
-
-function maria() {
+function limpiar() {
   window.location.reload();
 }
+
 
 // Filtrar menu
 function mostrarMenu(cliente) {
@@ -198,15 +184,9 @@ function mostrarMenu(cliente) {
   }
 }
 
-// Gestionamos pedidos
 
-// bebidasVampiros.addEventListener("click", (e) => {
-//   // Verificamos si lo que se presionado fue el botón de Añadir
-//   if (e.target.classList.contains("btnAñadir")) {
-//     const idBebida = e.target.dataset.id;
-//     console.log("ID capturado:", idBebida);
-//   }
-// });
+
+// Gestionamos pedidos
 
 // 1. Escuchamos el evento "click" en el contenedor padre de las bebidas de vampiro
 bebidasVampiros.addEventListener("click", (e) => {
@@ -227,50 +207,110 @@ bebidasVampiros.addEventListener("click", (e) => {
     pedido.push(bebidaSeleccionada);
 
     // 3. Ejecutamos la función para actualizar el HTML
-    pintarResumenPedido();
+    pintarResumenPedido("vampiro");
   }
 
 });
 
-// Función para pintar el pedido dinámicamente
+// 1. Escuchamos el evento "click" en el contenedor padre de las bebidas de Angeles
+bebidasAngeles.addEventListener("click", (e) => {
+
+  // Comprobamos si el clic fue en un botón añadir
+  if (e.target.classList.contains("btnAñadir")) {
+
+    // Guardamos el ID que tiene el botón en el HTML
+    const idBebida = e.target.dataset.id;
+
+    // Buscamos el objeto de la bebida en el array 'menu'
+    const bebidaSeleccionada = menu.find(
+      (bebida) => bebida.id === Number(idBebida)
+    );
+
+    // Añadimos la bebida al array global 'pedido'
+    pedido.push(bebidaSeleccionada);
+
+    // ¡AQUÍ!: Le enviamos "angel" a la función
+    pintarResumenPedido("angel");
+  }
+});
+
+
+
+// Declaramos la función y le creamos un hueco llamado 'cliente'
+// para saber si trabajamos con "vampiro" o "angel"
 function pintarResumenPedido(cliente) {
 
-  // 1. Seleccionamos la caja destino.
-  // Si cliente es "vampiro", usa 'pedidoVampiros'.
-  // Si no, usa 'pedidoAngels'.
-  const contenedorDestino = (cliente === "vampiro") 
-    ? pedidoVampiros 
-    : pedidoAngels;
+  // 1. Guardamos en la variable 'contenedorDestino' la caja HTML de vampiros 
+  //(si cliente es "vampiro") o la de ángeles (si es "angel")
+  const contenedorDestino = (cliente === "vampiro") ? pedidoVampiros : pedidoAngels;
 
-  // 2. Limpiamos el HTML de la caja
-  // para evitar duplicar el contenido.
+  // 2. Borramos todo el contenido de la caja seleccionada para dejarla vacía 
   contenedorDestino.innerHTML = "";
 
-  // 3. Si el array 'pedido' está vacío,
-  // detiene la función aquí con 'return'.
+  // 3. Si el contador de la lista de pedidos es 0 (está vacía)
+  //el 'return' apaga la función y no hace nada más
   if (pedido.length === 0) return;
 
-  // 4. Variable acumuladora para el total (€).
-  let precioTotal = 0;
-
-  // 5. Insertamos el título del resumen.
+  // 4. Ponemos un título pequeño <h3> dentro de la caja de destino
   contenedorDestino.innerHTML = `<h3>Resumen del Pedido</h3>`;
 
-  // 6. Recorremos el array 'pedido' elemento a elemento.
+  // 5. Arrancamos un contador 'i' desde 0 que irá avanzando de 1 en 1 
+  //hasta revisar todos los productos del array 'pedido'
   for (let i = 0; i < pedido.length; i++) {
 
-    // Sumamos el precio del producto al total acumulado.
-    precioTotal += pedido[i].precio;
+    // 6. Preguntamos: ¿El cliente de la bebida guardada en la posición 
+    //               'i' es exactamente igual al 'cliente' de esta caja?
+    if (pedido[i].cliente === cliente) {
 
-    // Concatenamos (+=) la línea de la bebida actual.
-    contenedorDestino.innerHTML += `
-      <p><strong>${pedido[i].nombre}</strong> - ${pedido[i].precio} €</p>
-    `;
-  }
+      // 7. Si la respuesta es SÍ, añadimos (+=) el nombre de la bebida 
+      //    en un párrafo <p> dentro de la caja de destino
+      contenedorDestino.innerHTML += `
+        <div class="linea-pedido">
+          <span>${pedido[i].nombre}</span>
+          <span>${pedido[i].precio} €</span>
+        </div>
+      `;
 
-  // 7. Insertamos la línea divisoria y la suma total.
-  contenedorDestino.innerHTML += `
-    <hr>
-    <p><strong>Total: ${precioTotal} €</strong></p>
-  `;
-}
+    } // Cerramos la pregunta de filtro
+  } // Cerramos el bucle contador
+} // Cerramos la función entera
+
+
+
+// La version larga 
+// SIN contenedorDestino: Tendría que escribir la lógica dos veces
+
+
+// function pintarResumenPedido(cliente) {
+
+//   if (cliente === "vampiro") {
+//     pedidoVampiros.innerHTML = ""; // Limpiamos la caja de vampiros
+//     if (pedido.length === 0) return;
+//     pedidoVampiros.innerHTML = `<h3>Resumen del Pedido</h3>`;
+    
+//     for (let i = 0; i < pedido.length; i++) {
+//       if (pedido[i].cliente === cliente) {
+//         pedidoVampiros.innerHTML += `<p>${pedido[i].nombre}</p>`;
+//       }
+//     }
+
+//   } else {
+//     pedidoAngels.innerHTML = ""; // Limpiamos la caja de ángeles
+//     if (pedido.length === 0) return;
+//     pedidoAngels.innerHTML = `<h3>Resumen del Pedido</h3>`;
+    
+//     for (let i = 0; i < pedido.length; i++) {
+//       if (pedido[i].cliente === cliente) {
+//         pedidoAngels.innerHTML += `<p>${pedido[i].nombre}</p>`;
+//       }
+//     }
+//   }
+
+// }
+
+
+// contador de cada bebida con una variable para cada tipo de bebida, para recorrer 
+// el array pedidos y si ya existe esa bebida contador ++
+
+// crear un contadorSD o Sangre plaeada  entonces si el 
+// contador es igual 0 (que es el primer item del array )

@@ -383,6 +383,7 @@ body {
   font-weight: 500;
 }
 
+
 /* ====================================================
                 RESUMEN DEL PEDIDO
 ====================================================== */
@@ -406,9 +407,25 @@ body {
   text-align: center;
 }
 
-#resumenPedido p {
-  margin: 0.5rem 0;
+/* Oculta la caja cuando esté completamente vacía */
+.pedido:empty {
+  display: none;
+}
+
+/* Título dentro del resumen */
+.pedido h3 {
+  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+/* Estilo de cada renglón del ticket (Flexbox) */
+.linea-pedido {
+  display: flex;
+  justify-content: space-between; /* Empuja el nombre a la izquierda y el precio a la derecha */
+  align-items: center;
+  padding: 0.6rem 0;
   font-size: 1.1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 0.3rem;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.2); /* Línea punteada de ticket */
 }
