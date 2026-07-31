@@ -67,11 +67,18 @@
     </section>
   </main>
 
-
-
-  <!-- <label for="nombre">Nombre:</label>
-  <input type="text" id="nombre" placeholder="Tu nombre aquí">
-  <button id="btnEntrar">Entrar</button> -->
+<!-- Contenedor principal de la ventana modal emergente oculto por defecto -->
+<div id="modalPedido" class="modal ocultar">
+  <!-- Caja interna con el mensaje y el botón de cierre -->
+  <div class="modal-contenido">
+    <!-- Título principal de agradecimiento del modal -->
+    <h3>Gracias por comprar en Rh21.</h3>
+    <!-- Mensaje secundario para confirmar el proceso sin repetir el título -->
+    <p>Tu pedido ha sido procesado con éxito.</p>
+    <!-- Botón para cerrar la ventana emergente -->
+    <button id="btnCerrarModal">Cerrar</button>
+  </div>
+</div>
 
   <script src="restaurante.js"></script>
 </body>

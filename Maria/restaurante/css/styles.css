@@ -429,3 +429,165 @@ body {
   font-size: 1.1rem;
   border-bottom: 1px dashed rgba(255, 255, 255, 0.2); /* Línea punteada de ticket */
 }
+
+/* ====================================================
+             BOTONES DE SUMAR Y RESTAR
+====================================================== */
+
+/* 1. Organiza en línea horizontal la caja que contiene los botones y el texto */
+.info-bebida {
+  display: flex;                /* Pone los botones y el texto uno al lado del otro */
+  align-items: center;          /* Centra los elementos verticalmente */
+  gap: 0.5rem;                  /* Crea un espacio de separación uniforme entre cada elemento */
+}
+
+/* 2. Aplica el estilo visual a los botones de restar (-) y sumar (+) */
+.btn-restar,
+.btn-sumar {
+  width: 28px;                  /* Ancho del botón */
+  height: 28px;                 /* Alto del botón para que sea un cuadrado perfecto */
+  border-radius: 6px;           /* Redondea suavemente las esquinas */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde fino transparente */
+  background: rgba(255, 255, 255, 0.15);     /* Fondo de cristal para encajar con tu diseño */
+  color: #ffffff;               /* Texto del signo + o - en color blanco */
+  font-size: 1rem;              /* Tamaño del signo + o - */
+  font-weight: bold;            /* Pone el signo en negrita para destacarlo */
+  cursor: pointer;              /* Cambia el puntero a una mano al pasar el ratón */
+  transition: all 0.2s ease;    /* Hace que los cambios visuales sean suaves */
+  display: flex;                /* Permite centrar el signo dentro del botón */
+  justify-content: center;      /* Centra horizontalmente el signo + o - */
+  align-items: center;          /* Centra verticalmente el signo + o - */
+}
+
+/* 3. Efecto cuando pasas el ratón por encima del botón */
+.btn-restar:hover,
+.btn-sumar:hover {
+  background: rgba(255, 255, 255, 0.35); /* El fondo del botón se ilumina */
+  transform: scale(1.08);                /* Aumenta un 8% su tamaño para dar sensación de pulsación */
+}
+
+/* 3. Efecto cuando pasas el ratón por encima del botón */
+.btn-restar:hover,
+.btn-sumar:hover {
+  background: rgba(255, 255, 255, 0.35);
+  transform: scale(1.08);
+}
+
+
+/* ====================================================
+                    TOTAL DEL PEDIDO
+====================================================== */
+.total-pedido {
+  margin-top: 1rem;
+  padding-top: 0.8rem;
+  border-top: 2px solid rgba(255, 255, 255, 0.4);
+  text-align: right;
+  font-size: 1.2rem;
+}
+
+
+/* ====================================================
+             BOTÓN REALIZAR PEDIDO Y MODAL
+====================================================== */
+
+/* Estilo visual para el botón de confirmar pedido al final del resumen */
+.btn-realizar-pedido {
+  width: 100%; /* Ocupa el ancho completo del contenedor del pedido */
+  margin-top: 1rem; /* Margen superior para separarlo del total */
+  padding: 0.8rem; /* Relleno interno del botón */
+  border-radius: 12px; /* Esquinas redondeadas */
+  border: 1px solid rgba(255, 255, 255, 0.3); /* Borde blanco semi-transparente */
+  background: rgba(255, 255, 255, 0.2); /* Fondo transparente tipo cristal */
+  color: white; /* Color blanco para el texto */
+  font-size: 1rem; /* Tamaño de letra de un rem */
+  font-weight: bold; /* Texto en negrita para resaltar */
+  cursor: pointer; /* Cambia el cursor a mano al pasar por encima */
+  transition: all 0.3s ease; /* Transición suave para los efectos */
+}
+
+/* Efecto al pasar el cursor sobre el botón realizar pedido */
+.btn-realizar-pedido:hover {
+  background: rgba(255, 255, 255, 0.35); /* Incrementa la opacidad del fondo */
+  transform: translateY(-2px); /* Eleva el botón ligeramente */
+}
+
+/* Capa traslúcida que cubre la pantalla entera */
+.modal {
+  position: fixed; /* Posicionamiento fijo respecto a la pantalla */
+  top: 0; /* Alineado al borde superior */
+  left: 0; /* Alineado al borde izquierdo */
+  width: 100%; /* Cubre todo el ancho */
+  height: 100%; /* Cubre todo el alto */
+  background: rgba(0, 0, 0, 0.75); /* Fondo negro semitransparente */
+  display: flex; /* Flexbox para centrar el contenido */
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+  z-index: 1000; /* Capa superior sobre todos los elementos */
+}
+
+/* Caja de contenido dentro de la ventana emergente */
+.modal-contenido {
+  background: #111827; /* Fondo oscuro sólido */
+  color: white; /* Texto en color blanco */
+  padding: 2rem; /* Espaciado interno amplio */
+  border-radius: 16px; /* Bordes redondeados de la caja */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borde sutil transparente */
+  text-align: center; /* Alineación del texto al centro */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5); /* Sombra de profundidad */
+  display: flex; /* Disposición flexible de elementos */
+  flex-direction: column; /* Organiza los elementos en columna */
+  gap: 1.5rem; /* Espacio entre el texto y el botón */
+}
+
+/* Estilo para el botón de cerrar la modal */
+#btnCerrarModal {
+  padding: 0.6rem 1.2rem; /* Relleno interno del botón */
+  border-radius: 8px; /* Redondeado de esquinas */
+  border: none; /* Elimina el borde por defecto */
+  background: #e11d48; /* Fondo de color rojo */
+  color: white; /* Texto de color blanco */
+  font-weight: bold; /* Texto en negrita */
+  cursor: pointer; /* Cursor tipo mano al pasar encima */
+}
+
+
+/* Corrección para que la modal se oculte correctamente sin conflictos */
+.modal.ocultar {
+  display: none;
+}
+
+
+/* ====================================================
+             BOTÓN DE AÑADIR EN LAS TARJETAS
+====================================================== */
+
+.btnAñadir {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.65rem 1rem;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.12);
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+/* Efecto al pasar el ratón por encima */
+.btnAñadir:hover {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto al hacer clic */
+.btnAñadir:active {
+  transform: translateY(0);
+}

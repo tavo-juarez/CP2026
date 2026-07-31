@@ -172,7 +172,10 @@ function mostrarMenu(cliente) {
           <H2 class='titulo'>${menu[i].nombre}</H2>
           <p>Precio: ${menu[i].precio} €</p>
           <p>Rareza: ${menu[i].rareza}</p>
-          <p>Puede ser tipo: ${menu[i].tipo[0]}, ${menu[i].tipo[1]}, ${menu[i].tipo[2]}</p>
+          
+          ${/* .join(", ") convierte el array de tipos en un solo texto separado por comas, 
+            evitando el error 'undefined' si hay menos de 3 elementos */ ""}
+          <p>Puede ser tipo: ${menu[i].tipo.join(", ")}</p>
           <button class='btnAñadir' data-id='${menu[i].id}'>Añadir</button>
 
         </div>`;
@@ -183,7 +186,10 @@ function mostrarMenu(cliente) {
           <H2 class='titulo'>${menu[i].nombre}</H2>
           <p>Precio: ${menu[i].precio} €</p>
           <p>Rareza: ${menu[i].rareza}</p>
-          <p>Puede ser tipo: ${menu[i].tipo[0]} o ${menu[i].tipo[1]}</p>
+
+        ${/* .join(", ") convierte el array de tipos en un solo texto separado por comas, 
+          evitando el error 'undefined' si hay menos de 3 elementos */ ""}
+        <p>Puede ser tipo: ${menu[i].tipo.join(", ")}</p>
         <button class='btnAñadir' data-id='${menu[i].id}'>Añadir</button>
 
         </div>`;
@@ -292,6 +298,9 @@ function pintarResumenPedido(cliente) {
   //el 'return' apaga la función y no hace nada más
   if (pedido.length === 0) return;
 
+  // 4. Creamos una variable acumuladora para ir sumando el precio total
+  let total = 0;
+
   // 4. Ponemos un título pequeño <h3> dentro de la caja de destino
   contenedorDestino.innerHTML = `<h3>Resumen del Pedido</h3>`;
 
@@ -303,18 +312,39 @@ function pintarResumenPedido(cliente) {
     //               'i' es exactamente igual al 'cliente' de esta caja?
     if (pedido[i].cliente === cliente) {
 
+      // Creamos una variable clara que almacena el cálculo de esta línea
+    const subtotal = pedido[i].precio * pedido[i].cantidad;
+
+    // 9. Le sumamos este subtotal al acumulador del total general
+      total += subtotal;
+
       // 7. Si la respuesta es SÍ, añadimos (+=) el nombre de la bebida 
       //    en un párrafo <p> dentro de la caja de destino
       contenedorDestino.innerHTML += `
         <div class="linea-pedido">
-          <span>${pedido[i].cantidad} X</span>
-          <span>${pedido[i].nombre}</span>
-          <span>Precio unidad ${pedido[i].precio} €</span>
-        </div>
-      `;
+    <!-- Bloque 1: Cantidad y Nombre juntos a la izquierda -->
+    <div class="info-bebida">
+      <button class="btn-restar" data-id="${pedido[i].id}">-</button>
+      <span>${pedido[i].cantidad} X</span>
+      <button class="btn-sumar" data-id="${pedido[i].id}">+</button>
+      <span>${pedido[i].nombre}</span>
+    </div>
+
+    <!-- Bloque 2: Subtotal a la derecha -->
+    <span>Subtotal: ${subtotal} €</span>
+  </div>
+  
+`;
 
     } // Cerramos la pregunta de filtro
   } // Cerramos el bucle contador
+
+  contenedorDestino.innerHTML += `
+    <div class="total-pedido">
+      <h4>Total: ${total} €</h4>
+    </div>
+    <button class="btn-realizar-pedido">Realizar pedido</button>
+  `;
 } // Cerramos la función entera
 
 
@@ -351,8 +381,127 @@ function pintarResumenPedido(cliente) {
 // }
 
 
-// contador de cada bebida con una variable para cada tipo de bebida, para recorrer 
-// el array pedidos y si ya existe esa bebida contador ++
 
-// crear un contadorSD o Sangre plaeada  entonces si el 
-// contador es igual 0 (que es el primer item del array )
+// 1. Escuchamos los clics que ocurren dentro de la caja 'pedidoVampiros'
+pedidoVampiros.addEventListener("click", (e) => {
+
+  // 2. Guardamos la etiqueta exacta donde hiciste clic en la pantalla
+  const elementoPulsado = e.target;
+
+  // --- LÓGICA DEL BOTÓN MÁS (+) ---
+  // 3. Comprobamos si el elemento pulsado tiene la clase "btn-sumar"
+  if (elementoPulsado.classList.contains("btn-sumar")) {
+
+    // 4. Leemos el id de la bebida desde 'data-id' y lo convertimos a número
+    const idBebida = Number(elementoPulsado.dataset.id);
+
+    // 5. Buscamos la bebida dentro del arreglo 'pedido'
+    const bebidaEncontrada = pedido.find((item) => item.id === idBebida);
+
+    // 6. Si la bebida existe, le sumamos 1 a la propiedad 'cantidad'
+    if (bebidaEncontrada) {
+      bebidaEncontrada.cantidad++;
+
+      // 7. Volvemos a pintar el Resumen del Pedido actualizado
+      pintarResumenPedido("vampiro");
+    }
+    
+  }
+
+  // --- LÓGICA DEL BOTÓN MENOS (-) ---
+  // 8. Comprobamos si el elemento pulsado tiene la clase "btn-restar"
+  if (elementoPulsado.classList.contains("btn-restar")) {
+
+    // 9. Leemos el id de la bebida desde 'data-id' y lo convertimos a número
+    const idBebida = Number(elementoPulsado.dataset.id);
+
+    // 10. Buscamos la bebida dentro del arreglo 'pedido'
+    const bebidaEncontrada = pedido.find((item) => item.id === idBebida);
+
+    // 11. Si la bebida existe, le restamos 1 a la propiedad 'cantidad'
+    if (bebidaEncontrada) {
+      bebidaEncontrada.cantidad--;
+
+      // 12. Si la cantidad llega a 0, la eliminamos del arreglo 'pedido'
+      if (bebidaEncontrada.cantidad === 0) {
+        pedido = pedido.filter((item) => item.id !== idBebida);
+      }
+
+      // 13. Volvemos a pintar el Resumen del Pedido actualizado
+      pintarResumenPedido("vampiro");
+    }
+  }
+
+  // --- LÓGICA DEL BOTÓN REALIZAR PEDIDO ---
+  // Comprobamos si el elemento pulsado tiene la clase "btn-realizar-pedido"
+  if (elementoPulsado.classList.contains("btn-realizar-pedido")) {
+    // Ejecutamos la función para abrir el modal emergente
+    abrirModal();
+  }
+
+// 14. Cerramos el escuchador de clics de pedidoVampiros
+});
+
+// Escuchador de clics para la caja de Ángeles
+pedidoAngels.addEventListener("click", (e) => {
+  const elementoPulsado = e.target;
+
+  // BOTÓN MÁS (+)
+  if (elementoPulsado.classList.contains("btn-sumar")) {
+    const idBebida = Number(elementoPulsado.dataset.id);
+    const bebidaEncontrada = pedido.find((item) => item.id === idBebida);
+
+    if (bebidaEncontrada) {
+      bebidaEncontrada.cantidad++;
+      pintarResumenPedido("angel");
+    }
+  }
+
+  // BOTÓN MENOS (-)
+  if (elementoPulsado.classList.contains("btn-restar")) {
+    const idBebida = Number(elementoPulsado.dataset.id);
+    const bebidaEncontrada = pedido.find((item) => item.id === idBebida);
+
+    if (bebidaEncontrada) {
+      bebidaEncontrada.cantidad--;
+
+      if (bebidaEncontrada.cantidad === 0) {
+        pedido = pedido.filter((item) => item.id !== idBebida);
+      }
+
+      pintarResumenPedido("angel");
+    }
+  }
+
+  // --- LÓGICA DEL BOTÓN REALIZAR PEDIDO ---
+  // Comprobamos si el elemento pulsado tiene la clase "btn-realizar-pedido"
+  if (elementoPulsado.classList.contains("btn-realizar-pedido")) {
+    // Ejecutamos la función para abrir el modal emergente
+    abrirModal();
+  }
+});
+
+
+// ====================================================
+//              CONTROL DE LA VENTANA MODAL
+// ====================================================
+
+// Seleccionamos el elemento contenedor del modal emergente por su id único
+const modalPedido = document.getElementById("modalPedido");
+// Seleccionamos el botón de cierre que está dentro del modal por su id único
+const btnCerrarModal = document.getElementById("btnCerrarModal");
+
+// Declaramos la función para hacer visible el modal en pantalla
+function abrirModal() {
+  // Eliminamos la clase ocultar para que el CSS muestre el modal emergente
+  modalPedido.classList.remove("ocultar");
+}
+
+// Declaramos la función para esconder el modal de la pantalla
+function cerrarModal() {
+  // Añadimos la clase ocultar para volver a ocultar el modal emergente
+  modalPedido.classList.add("ocultar");
+}
+
+// Escuchamos el clic en el botón cerrar del modal para ejecutar la función cerrarModal
+btnCerrarModal.addEventListener("click", cerrarModal);
